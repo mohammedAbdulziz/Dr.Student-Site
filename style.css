@@ -1,0 +1,84 @@
+:root {
+    --bc: black;
+    --fontColor: red;
+    /* --celadon: #A8D8C2ff;
+    --white: #FFFFFFff;
+    --cambridge-blue: #8BC2B5ff;
+    --french-gray: #C0CBD2ff;
+    --white-2: #FFFFFFff; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    background-color: #F5F2E4;
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+#topHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logo {
+    height: fit-content;
+    width: fit-content;
+    width: 8%;
+    
+}
+
+#logo img {
+    width: 100%;
+    margin-inline-end: 0;
+    display: block;
+
+}
+
+#topHeader ul {
+    display: flex;
+    list-style: none;
+    width:92%;
+    justify-content: space-between;
+    margin: 20px 20px;
+    align-items: center;
+
+}
+#topHeader ul li input{
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: medium;
+    padding: 6px 8px;
+    margin: 0px 8px;
+    border-radius: 10px;
+    border: none;
+
+}
+#topHeader #searchBtn{
+    background-color: #49A787;
+}
+#topHeader #searchText{
+    border: solid;
+    border-color: black;
+}
+#topHeader #arEnBtn{
+    background-color: #8D84DA;
+}
+#topHeader #loginBtn{
+    background-color: #49A787;
+}
+
+#topHeader ul li h1{
+    font-family: Calisto MT;
+    font-weight:lighter;
+    color: #0095D7;
+}
+
+/* End of header */

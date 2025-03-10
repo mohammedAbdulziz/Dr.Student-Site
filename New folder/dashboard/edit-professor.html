@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professor Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="prof-navbar">
+      <div class="prof-navbar-container">
+        <a href="#" class="logo">Professor Portal</a>
+        <a href="#" class="logout-btn">Logout</a>
+      </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <h2>Profile</h2>
+      <div class="profile-info">
+        <img src="profile.jpg" alt="Profile" class="profile-picture" />
+        <div class="status-container">
+          <div class="status-toggle">
+            <input type="radio" id="in-office" name="status" checked />
+            <label for="in-office" class="status-btn available"
+              >In Office</label
+            >
+
+            <input type="radio" id="not-available" name="status" />
+            <label for="not-available" class="status-btn not-available"
+              >Not Available</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schedule Section -->
+    <div class="schedule-section">
+      <h2>Schedule</h2>
+      <div class="schedule-form-container">
+        <form class="schedule-form">
+          <!-- Monday -->
+          <div class="schedule-row">
+            <label for="monday">Monday:</label>
+            <input
+              type="time"
+              id="monday-start"
+              name="monday-start"
+              value="09:00"
+            />
+            <span>to</span>
+            <input
+              type="time"
+              id="monday-end"
+              name="monday-end"
+              value="17:00"
+            />
+          </div>
+
+          <!-- Tuesday -->
+          <div class="schedule-row">
+            <label for="tuesday">Tuesday:</label>
+            <input
+              type="time"
+              id="tuesday-start"
+              name="tuesday-start"
+              value="10:00"
+            />
+            <span>to</span>
+            <input
+              type="time"
+              id="tuesday-end"
+              name="tuesday-end"
+              value="16:00"
+            />
+          </div>
+
+          <!-- Wednesday -->
+          <div class="schedule-row">
+            <label for="wednesday">Wednesday:</label>
+            <input
+              type="time"
+              id="wednesday-start"
+              name="wednesday-start"
+              value="08:00"
+            />
+            <span>to</span>
+            <input
+              type="time"
+              id="wednesday-end"
+              name="wednesday-end"
+              value="12:00"
+            />
+          </div>
+
+          <!-- Thursday -->
+          <div class="schedule-row">
+            <label for="thursday">Thursday:</label>
+            <input
+              type="time"
+              id="thursday-start"
+              name="thursday-start"
+              value="09:00"
+            />
+            <span>to</span>
+            <input
+              type="time"
+              id="thursday-end"
+              name="thursday-end"
+              value="17:00"
+            />
+          </div>
+
+          <!-- Friday -->
+          <div class="schedule-row">
+            <label for="friday">Friday:</label>
+            <input
+              type="time"
+              id="friday-start"
+              name="friday-start"
+              value="09:00"
+            />
+            <span>to</span>
+            <input
+              type="time"
+              id="friday-end"
+              name="friday-end"
+              value="15:00"
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="save-btn">Update Schedule</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h2>Contact Information</h2>
+      <form class="contact-form">
+        <!-- Email Input -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="professor@example.com"
+            required
+          />
+        </div>
+
+        <!-- Phone Input -->
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value="+1234567890"
+            pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
+            required
+          />
+          <span class="example">(e.g., (123) 456-7890)</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="save-btn">Update Contact Info</button>
+      </form>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2024 Professor Dashboard</p>
+    </footer>
+  </body>
+</html>
