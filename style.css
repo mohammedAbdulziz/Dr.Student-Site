@@ -14,15 +14,20 @@
     box-sizing: border-box;
 
 }
+html{
+    font-size:smaller;
+}
 
 header {
     background-color: #F5F2E4;
-    border-bottom-color: black;
-    border-bottom-width: 2px;
+    border-bottom-width: 0.6rem;
     border-bottom-style: solid;
+    border-image: linear-gradient(180deg, #333333, #fff);
+    border-image-slice:110;
 }
 
 #topHeader{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,12 +57,12 @@ header {
 
 }
 #topHeader ul li input{
-    font-family: Calibri;
+    font-family: 'calibri';
     font-weight: bold;
-    font-size: medium;
-    padding: 6px 8px;
+    font-size: 1.2rem;
+    padding: 8px 10px;
     margin: 0px 8px;
-    border-radius: 10px;
+    border-radius: 11.1758px;
     border: none;
 
 }
@@ -67,18 +72,25 @@ header {
 #topHeader #searchText{
     border: solid;
     border-color: black;
+    width: 22rem;
 }
 #topHeader #arEnBtn{
     background-color: #8D84DA;
+    border-radius: 16.6376px;
 }
 #topHeader #loginBtn{
     background-color: #49A787;
 }
 
-#topHeader ul li h1{
+#topHeader h1{
+    display:block;
     font-family: Calisto MT;
-    font-weight:lighter;
+    font-size: 2.2rem;
+    font-weight:500;
     color: #0095D7;
+    position: absolute;
+    left: 45%;
+    top: 35%;
 }
 
 /* End of header */
