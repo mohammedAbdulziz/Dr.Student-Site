@@ -1,11 +1,5 @@
 :root {
-    --bc: black;
-    --fontColor: red;
-    /* --celadon: #A8D8C2ff;
-    --white: #FFFFFFff;
-    --cambridge-blue: #8BC2B5ff;
-    --french-gray: #C0CBD2ff;
-    --white-2: #FFFFFFff; */
+
 }
 
 * {
@@ -15,7 +9,9 @@
 
 }
 html{
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     font-size:smaller;
+    font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -57,7 +53,7 @@ header {
 
 }
 #topHeader ul li input{
-    font-family: 'calibri';
+   
     font-weight: bold;
     font-size: 1.2rem;
     padding: 8px 10px;
@@ -66,8 +62,24 @@ header {
     border: none;
 
 }
+#topHeader ul li a{
+    
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 8px 10px;
+    margin: 0px 8px;
+    border-radius: 11.1758px;
+    border: none;
+    color: black;
+    text-decoration: none;
+
+}
 #topHeader #searchBtn{
     background-color: #49A787;
+    cursor: pointer;
+}
+#topHeader #searchBtn:hover{
+    background-color: #9ADDB9;
 }
 #topHeader #searchText{
     border: solid;
@@ -94,3 +106,74 @@ header {
 }
 
 /* End of header */
+/* Starting of main */
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: fit-content;
+}
+main img{
+    display: block;
+    width:35%;
+    margin: 2.7rem 2rem;
+}
+
+#paraCont{
+    margin: 2.7rem 2rem;
+    background-image: url("/Images/Asset\ 9.png");
+    background-size: cover;
+}
+#paraCont h1{
+    font-weight: 350;
+    text-align: center;
+    color: #8D84DA;
+    font-size: 2.7rem;
+    margin-bottom: 1rem;
+}
+
+#paraCont p{
+    font-size: 1.2rem;
+    font-weight:350;
+}
+
+/* End of main */
+
+/* start of Footer */
+
+footer{
+    background-color: #49A787;
+    position: relative;
+    display: flex;
+    padding: 2.5rem 2rem;
+    justify-content: space-between;
+}
+
+footer #contactInfo{
+    font-weight: 350;
+    font-size: 1.2rem;
+}
+
+footer #contactInfo p{
+    margin: 0.5rem 0;
+}
+
+footer h4{
+    font-weight: 250;
+    position: absolute;
+    bottom: 10%;
+    left:45%;
+}
+
+footer #social{
+    font-size:2.5rem;
+    margin-top: 2rem;
+}
+#footer #socail a{
+    color: black;
+    
+}
+footer #social i{
+    margin-left: 2rem;
+    color: black;
+}
