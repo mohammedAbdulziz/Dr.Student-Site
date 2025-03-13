@@ -1,6 +1,4 @@
-:root {
-
-}
+:root {}
 
 * {
     margin: 0;
@@ -8,25 +6,28 @@
     box-sizing: border-box;
 
 }
-html{
+
+html {
     /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-    font-size:smaller;
+    font-size: smaller;
     font-family: "Roboto", sans-serif;
 }
-body{
-height: 100%;
-overflow: hidden;
+
+body {
+    height: 100%;
+    overflow: hidden;
 }
+
 /* Header theme #################################################################### */
 header {
     background-color: #F5F2E4;
-    border-bottom-width: 0.6rem;
+    border-bottom-width: 0.8rem;
     border-bottom-style: solid;
-    border-image: linear-gradient(180deg, #333333, #fff);
-    border-image-slice:110;
+    border-image: linear-gradient(180deg, #333333, #8D84DA);
+    border-image-slice: 200;
 }
 
-#topHeader{
+#topHeader {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -37,7 +38,7 @@ header {
     height: fit-content;
     width: fit-content;
     width: 8%;
-    
+
 }
 
 #logo img {
@@ -50,14 +51,15 @@ header {
 #topHeader ul {
     display: flex;
     list-style: none;
-    width:92%;
+    width: 92%;
     justify-content: space-between;
     margin: 20px 20px;
     align-items: center;
 
 }
-#topHeader ul li input{
-   
+
+#topHeader ul li input {
+
     font-weight: bold;
     font-size: 1.2rem;
     padding: 8px 10px;
@@ -66,8 +68,9 @@ header {
     border: none;
 
 }
-#topHeader ul li a{
-    
+
+#topHeader ul li a {
+
     font-weight: bold;
     font-size: 1.2rem;
     padding: 8px 10px;
@@ -78,42 +81,51 @@ header {
     text-decoration: none;
 
 }
-#topHeader #searchBtn{
+
+#topHeader #searchBtn {
+    visibility: hidden;
     background-color: #49A787;
     cursor: pointer;
 }
-#topHeader #searchBtn:hover{
+
+#topHeader #searchBtn:hover {
     background-color: #9ADDB9;
 }
-#topHeader #searchText{
+
+#topHeader #searchText {
+    visibility: hidden;
     border: solid;
     border-color: black;
     width: 22rem;
 }
-#topHeader #arEnBtn{
+
+#topHeader #arEnBtn {
     background-color: #8D84DA;
     border-radius: 16.6376px;
 }
-#topHeader #loginBtn{
+
+#topHeader #loginBtn {
     background-color: #49A787;
 }
 
-#topHeader h1{
-    display:block;
+#topHeader h1 {
+    display: block;
     font-family: Calisto MT;
     font-size: 2.2rem;
-    font-weight:500;
+    font-weight: 500;
     color: #0095D7;
     position: absolute;
-    left: 45%;
-    top: 35%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* End of header */
 /* Starting of main */
-main{
-    display: flex;
-    justify-content: space-around;
+main {
+    display: block;
+    position: relative;
+    align-items: 50%;
     width: fit-content;
     background-color: #8D84DA;
     width: 100%;
@@ -121,12 +133,86 @@ main{
 
 }
 
+main #loginCont {
+    background-color: white;
+    width: 25%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    padding-bottom: 1.4rem;
+    box-shadow: 0px 0px 20px #333333;
+    text-align: center;
+}
+
+
+main #loginCont img{
+    display: inline-block;
+    width:30%;
+}
+
+
+main #loginCont form {
+    text-align: left;
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+}
+
+main #loginCont form .formDiv {
+    display: block;
+    width: 90%;
+    position: relative;
+
+}
+
+main #loginCont label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: #49A787;
+    font-weight: 700;
+}
+
+main #loginCont input {
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-color: #a7aeab;
+    border-style: solid;
+    border-width: 0.12rem;
+}
+
+main #loginCont form div:last-of-type {
+    text-align: center;
+}
+
+main #loginCont form .formDiv #logInBtn {
+    background-color: #49A787;
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-color: #a7aeab;
+    border-style: solid;
+    border-width: 0.12rem;
+    font-weight: 400;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+
 
 /* End of main */
 /* ############################################################################################ */
 /* start of Footer */
 
-footer{
+footer {
     background-color: #49A787;
     position: absolute;
     display: flex;
@@ -136,31 +222,34 @@ footer{
     width: 100%;
 }
 
-footer #contactInfo{
+footer #contactInfo {
     font-weight: 350;
     font-size: 1.2rem;
 }
 
-footer #contactInfo p{
+footer #contactInfo p {
     margin: 0.5rem 0;
 }
 
-footer h4{
+footer h4 {
     font-weight: 250;
     position: absolute;
-    bottom: 10%;
-    left:45%;
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-footer #social{
-    font-size:2.5rem;
+footer #social {
+    font-size: 2.5rem;
     margin-top: 2rem;
 }
-#footer #socail a{
+
+#footer #socail a {
     color: black;
-    
+
 }
-footer #social i{
+
+footer #social i {
     margin-left: 2rem;
     color: black;
 }
