@@ -13,7 +13,11 @@ html{
     font-size:smaller;
     font-family: "Roboto", sans-serif;
 }
-
+body{
+height: 100%;
+overflow: hidden;
+}
+/* Header theme #################################################################### */
 header {
     background-color: #F5F2E4;
     border-bottom-width: 0.6rem;
@@ -110,52 +114,26 @@ header {
 main{
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
     width: fit-content;
-}
-main img{
-    display: block;
-    width:35%;
-    margin: 2.7rem 2rem;
+    background-color: #8D84DA;
+    width: 100%;
+    height: 100vh;
+
 }
 
-#paraCont{
-    margin: 2.7rem 2rem;
-    background-image: url("./Images/Asset\ 9.png");
-    background-size: cover;
-    position: relative;
-    width: 70%;
-}
-
-#contContainer{
-    position: absolute;
-    top: 30%;
-}
-#paraCont h1{
-    font-weight: 350;
-    text-align: center;
-    color: #8D84DA;
-    font-size: 2.7rem;
-    margin-bottom: 1rem;
-}
-
-#paraCont p{
-    font-size: 1.5rem;
-    font-weight:350;
-
-    text-align: center;
-}
 
 /* End of main */
-
+/* ############################################################################################ */
 /* start of Footer */
 
 footer{
     background-color: #49A787;
-    position: relative;
+    position: absolute;
     display: flex;
     padding: 2.5rem 2rem;
     justify-content: space-between;
+    bottom: 0;
+    width: 100%;
 }
 
 footer #contactInfo{
