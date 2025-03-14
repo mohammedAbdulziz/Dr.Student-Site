@@ -77,6 +77,7 @@ header {
 #topHeader #searchBtn{
     background-color: #49A787;
     cursor: pointer;
+    box-shadow: 0px 0px 5px grey;
 }
 #topHeader #searchBtn:hover{
     background-color: #9ADDB9;
@@ -89,9 +90,11 @@ header {
 #topHeader #arEnBtn{
     background-color: #8D84DA;
     border-radius: 16.6376px;
+    box-shadow: 0px 0px 5px grey;
 }
 #topHeader #loginBtn{
     background-color: #49A787;
+    box-shadow: 0px 0px 5px grey;
 }
 
 #topHeader h1{

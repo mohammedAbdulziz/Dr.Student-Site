@@ -102,10 +102,12 @@ header {
 #topHeader #arEnBtn {
     background-color: #8D84DA;
     border-radius: 16.6376px;
+    box-shadow: 0px 0px 5px grey;
 }
 
 #topHeader #loginBtn {
     background-color: #49A787;
+    box-shadow: 0px 0px 5px grey;
 }
 
 #topHeader h1 {
@@ -203,6 +205,7 @@ main #loginCont form .formDiv #logInBtn {
     font-weight: 400;
     font-size: 1.3rem;
     cursor: pointer;
+    box-shadow: 0px 0px 5px grey;
 }
 
 
