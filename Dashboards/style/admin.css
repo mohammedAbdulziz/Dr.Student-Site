@@ -1,0 +1,109 @@
+#faqBtn{
+    background-color: #0095D7;
+    box-shadow: 0px 0px 5px grey;
+}
+#logOutBtn{
+    background-color: #49A787;
+    box-shadow: 0px 0px 5px grey;
+}
+main{
+    padding:2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+main .manage-accounts{
+    border:solid 1px grey;
+    padding:1.2rem;
+    border-radius: 1.5rem;
+}
+main .manage-accounts h1{
+    color:#0095D7;
+    border-bottom: solid #0095D7 0.2rem;
+    margin-bottom: 2rem;
+}
+
+main .manage-accounts .new-account{
+padding-bottom: 1rem;
+border-bottom: solid #0095D7 0.2rem;
+padding-bottom: 2rem;
+}
+main .manage-accounts .new-account input{
+    background-color: #49A787;
+    padding:0.8rem;
+    border-radius: 0.6rem;
+    border:none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 0 0.5rem grey;
+    cursor: pointer;
+}
+
+main .manage-accounts .account-filter{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+main .manage-accounts .account-filter .btn{
+    /* background-color: #0095D7; */
+    border:solid #0095D7 0.18rem;
+    padding:0.8rem;
+    border-radius: 0.6rem;
+    /* border:none; */
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 0 0.5rem grey;
+    margin-right: 1.5rem;
+    background-color: white;
+    cursor: pointer;
+}
+main .manage-accounts .account-filter .active{
+    background-color: #0095D7;
+    border: none;
+    color: white;
+
+}
+main .manage-accounts .accounts-table table{
+    text-align: left;
+    font-size: 1.2rem;
+  border-spacing: 0;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  border-bottom: solid 0.1rem rgb(202, 202, 202);
+}
+main .manage-accounts .accounts-table table th{
+background-color: rgb(216, 216, 216);
+font-weight: 550;
+padding:0.5rem;
+
+margin: 0;
+}
+main .manage-accounts .accounts-table table td{
+
+    font-weight: 550;
+    padding:0.5rem;
+    border-right: solid 0.1rem rgb(202, 202, 202);
+    border-left: solid 0.1rem rgb(202, 202, 202);
+    margin: 0;
+    }
+
+    main .manage-faq{
+        border-left: solid #0095D7 0.2rem;
+        height: fit-content;
+        padding-left: 1rem;
+    }
+
+    main .manage-faq h1{
+        color:#49A787;
+        margin-bottom: 1rem;
+    }
+    main .manage-faq input{
+        background-color: #8D84DA;
+        padding:0.8rem;
+        border-radius: 0.6rem;
+        border:none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        box-shadow: 0 0 0.5rem grey;
+        cursor: pointer;
+    }
