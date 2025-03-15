@@ -12,6 +12,7 @@ main{
     flex-direction: row;
     justify-content: space-between;
     width:100%;
+
 }
 
 .doctor-info{
@@ -19,10 +20,125 @@ main{
     padding:1rem;
     box-shadow: 0 0 1rem grey;
     border-radius: 1.2rem;
+    /* background: linear-gradient(to bottom, #F5F2E4, #fff); */
+    background: linear-gradient(135deg, #fffef9, #fff);
+}
+.doctor-info h1{
+    margin: 1rem 2rem;
+    color: #0095D7;
+    border-bottom: solid 0.15rem;
+
 }
 
+.doctor-info #doc-profile-pic{
+    width:100%;
+    padding:1rem 2rem;
+}
+.doctor-info #doc-profile-pic img{
+    width:30%;
+    box-shadow: 0 0 0.8rem grey;
+    border-radius: 25%;
+    margin: 0;
+}
+
+.doctor-info #doc-status{
+    padding: 2rem 1rem;
+    /* text-align: center; */
+
+}
+.status-btn{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 0 0.8rem grey;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.available{
+    background-color: #0095D7;
+
+}
+.not-available{
+    background-color: #49A787;
+}
+
+
+.doctor-details{
+    margin:1rem 2rem;
+}
+.doctor-details h1{
+    margin-left:0;
+}
+.doctor-detail{
+    display: flex;
+    width:85%;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.doctor-detail strong{
+    font-weight: 500;
+}
+.doctor-detail input{
+    font-weight: 500;
+    padding: 0.4rem;
+    width: 70%;
+    border-radius: 0.5rem;
+    border:0.1rem grey solid;
+    box-shadow: 0 0 0.2rem grey;
+    font-size: 1rem;
+}
+.doctor-detail:last-of-type{
+    justify-content: right;
+}
+.doctor-detail:last-of-type input{
+    background-color:#8D84DA;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 .doctor-schedule{
     width:40%;
+    border-left: #0095D7 solid 0.2rem;
+    padding-left: 2rem;
+    height: fit-content;
 }
+.doctor-schedule h1{
+    color:#49A787;
+    margin-bottom: 1rem;
+    border-bottom: solid 0.15rem;
+}
+.doctor-schedule .schedule-infos{
+    width:100%;
+}
+.doctor-schedule .schedule-infos .schedule-info{
+    display: flex;
+    justify-content: space-between;
+    padding:0.5rem 0;
+    font-size: 1.2rem;
+}
+.doctor-schedule .schedule-infos .schedule-info strong{
+    width:15%
+}
+.doctor-schedule .schedule-infos .schedule-info input{
+    width:37%;
+    padding:0.2rem;
+    border-radius: 0.6rem;
+    border:solid 0.1rem grey;
+    box-shadow: 0 0 0.2rem rgb(175, 175, 175);
+}
+.doctor-schedule .schedule-infos .schedule-info:last-of-type{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 
-.doctor-schedule
+}
+#doctor-update-schedule{
+    background-color: #8D84DA;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding:0.6rem;
+}
