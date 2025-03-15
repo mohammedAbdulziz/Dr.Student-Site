@@ -7,7 +7,7 @@
     <title>Doctors Reminder</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="./style/profpg.css">
+    <link rel="stylesheet" href="./style/doctor-pg.css">
     <link rel="icon" href="../Images/Icon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/6362050fec.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,21 @@
         </div>
     </header>
     <main>
-        
+       <div class="doctor-info">
+        <h1>Your Profile</h1>
+        <div id="doc-profile-pic">
+            <img src="../Images/student-profile.jpeg" alt="Doctor Profile Picture">
+        </div>
+        <div id="doc-status">
+            <input type="radio" name="status" id="available">
+            <label for="available" class="status-btn available">Available</label>
+            <input type="radio" name="status" id="not-available">
+            <label for="not-available" class="status-btn not-available">Not Available</label>
+        </div>
+       </div>
+       <div class="doctor-schedule">
+        <h1>Schedule</h1>
+       </div>
     </main>
     <footer>
         <div id="contactInfo">
