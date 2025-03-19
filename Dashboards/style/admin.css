@@ -1,53 +1,67 @@
-#faqBtn{
+
+#faqBtn {
     background-color: #0095D7;
     box-shadow: 0px 0px 5px grey;
 }
-#logOutBtn{
+
+#logOutBtn {
     background-color: #49A787;
     box-shadow: 0px 0px 5px grey;
 }
-main{
-    padding:2rem;
+
+main {
+    padding: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    position: relative;
+    height: fit-content;
+    margin-bottom: 4rem;
 }
-main .manage-accounts{
-    border:solid 1px grey;
-    padding:1.2rem;
+
+main .manage-accounts {
+    border: solid 1px grey;
+    padding: 1.2rem;
     border-radius: 1.5rem;
 }
-main .manage-accounts h1{
-    color:#0095D7;
+
+main .manage-accounts h1 {
+    color: #0095D7;
     border-bottom: solid #0095D7 0.2rem;
     margin-bottom: 2rem;
 }
 
-main .manage-accounts .new-account{
-padding-bottom: 1rem;
-border-bottom: solid #0095D7 0.2rem;
-padding-bottom: 2rem;
+main .manage-accounts .new-account {
+    padding-bottom: 1rem;
+    border-bottom: solid #0095D7 0.2rem;
+    padding-bottom: 2rem;
 }
-main .manage-accounts .new-account input{
+
+main .manage-accounts .new-account input {
     background-color: #49A787;
-    padding:0.8rem;
+    padding: 0.8rem;
     border-radius: 0.6rem;
-    border:none;
+    border: none;
     font-size: 1.1rem;
     font-weight: 600;
     box-shadow: 0 0 0.5rem grey;
     cursor: pointer;
 }
+main .manage-accounts .new-account input:hover{
+    background-color: #3b856c;
+    color: white;
+}
 
-main .manage-accounts .account-filter{
+main .manage-accounts .account-filter {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-main .manage-accounts .account-filter .btn{
+
+main .manage-accounts .account-filter .btn {
     /* background-color: #0095D7; */
-    border:solid #0095D7 0.18rem;
-    padding:0.8rem;
+    border: solid #0095D7 0.18rem;
+    padding: 0.8rem;
     border-radius: 0.6rem;
     /* border:none; */
     font-size: 1.1rem;
@@ -57,53 +71,176 @@ main .manage-accounts .account-filter .btn{
     background-color: white;
     cursor: pointer;
 }
-main .manage-accounts .account-filter .active{
+
+main .manage-accounts .account-filter .active {
     background-color: #0095D7;
     border: none;
     color: white;
 
 }
-main .manage-accounts .accounts-table table{
+main .manage-accounts .accounts-table{
+    display: none;
+}
+main .manage-accounts .accounts-table.active{
+    display: block;
+}
+main .manage-accounts .accounts-table table {
     text-align: left;
     font-size: 1.2rem;
-  border-spacing: 0;
-  margin-bottom: 2rem;
-  border-collapse: collapse;
-  border-bottom: solid 0.1rem rgb(202, 202, 202);
+    border-spacing: 0;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    border-bottom: solid 0.1rem rgb(202, 202, 202);
 }
-main .manage-accounts .accounts-table table th{
-background-color: rgb(216, 216, 216);
-font-weight: 550;
-padding:0.5rem;
 
-margin: 0;
+main .manage-accounts .accounts-table table th {
+    background-color: rgb(216, 216, 216);
+    font-weight: 550;
+    padding: 0.5rem;
+
+    margin: 0;
 }
-main .manage-accounts .accounts-table table td{
+
+main .manage-accounts .accounts-table table td {
 
     font-weight: 550;
-    padding:0.5rem;
+    padding: 0.5rem;
     border-right: solid 0.1rem rgb(202, 202, 202);
     border-left: solid 0.1rem rgb(202, 202, 202);
     margin: 0;
-    }
+}
+.manage-accounts .accounts-table table td input{
+    padding: 0.3rem;
+    border-radius: 0.6rem;
+    border: none black 0.11rem;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow:0 0 0.2rem grey;
+}
+.manage-accounts .accounts-table table td input:last-child{
+    margin-left: 0.5rem;
+}
 
-    main .manage-faq{
-        border-left: solid #0095D7 0.2rem;
-        height: fit-content;
-        padding-left: 1rem;
-    }
+main .manage-faq {
+    border-left: solid #0095D7 0.2rem;
+    height: fit-content;
+    padding-left: 1rem;
+}
 
-    main .manage-faq h1{
-        color:#49A787;
-        margin-bottom: 1rem;
-    }
-    main .manage-faq input{
-        background-color: #8D84DA;
-        padding:0.8rem;
-        border-radius: 0.6rem;
-        border:none;
-        font-size: 1.1rem;
-        font-weight: 600;
-        box-shadow: 0 0 0.5rem grey;
-        cursor: pointer;
-    }
+main .manage-faq h1 {
+    color: #49A787;
+    margin-bottom: 1rem;
+}
+
+main .manage-faq input {
+    background-color: #8D84DA;
+    padding: 0.8rem;
+    border-radius: 0.6rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 0 0.5rem grey;
+    cursor: pointer;
+}
+
+.create-account-pg{
+    width:25%;
+   display: block;
+   border-radius: 1rem;
+   box-shadow: 0 0 0.8rem grey;
+   padding:1.5rem;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1;
+   background-color: #fff;
+    margin-top: 2rem;
+    display: none;
+}
+.createAccPgBC{
+    content: " ";
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.262),rgba(255, 255, 255, 0.212)), url('../../Images/uni.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    height: 70vh;
+    display: none;
+}
+
+.create-account-pg .accBtnType{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin-bottom: 1.5rem;
+
+}
+.create-account-pg h1{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.create-account-pg .accBtnType .btn{
+    border: solid #0095D7 0.18rem;
+    padding: 0.8rem 2rem;
+    border-radius: 0.6rem;
+    /* border:none; */
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 0 0.5rem grey;
+    margin-right: 1.5rem;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+
+.create-account-pg .accBtnType .active{
+    background-color: #0095D7;
+    border: none;
+    color: white;
+
+}
+
+.create-account-pg form{
+    width:100%;
+    margin-bottom: 1rem;
+    display: none;
+}
+.create-account-pg form.active{
+    display: block;
+}
+
+.create-account-pg form .formDiv{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.create-account-pg form .formDiv:last-of-type{
+    margin-top: 2rem;
+}
+.create-account-pg form .formDiv label{
+font-weight: 500;
+}
+.create-account-pg form .formDiv input{
+    width:65%;
+    padding:0.2rem;
+    border-radius: 1rem;
+    border:solid grey 0.1rem;
+}
+.create-account-pg form .formDiv:last-of-type input{
+    width:45%;
+    background-color: #49A787;
+    font-weight: 600;
+    padding: 0.4rem;
+    box-shadow: 0 0 0.4rem grey;
+    cursor: pointer;
+    color: white;
+}
+.create-account-pg form .formDiv:last-of-type input:last-of-type{
+    background-color: #8D84DA;
+}

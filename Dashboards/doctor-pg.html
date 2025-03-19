@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctors Reminder</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style/doctor-pg.css">
     <link rel="icon" href="../Images/Icon.png" type="image/x-icon">
@@ -48,8 +47,9 @@
         <div class="doctor-info">
             <h1>Your Profile</h1>
             <div id="doc-profile-pic">
-                <img src="../Images/doctor-profile.jpeg" alt="Doctor Profile Picture">
+                <img src="../Images/doctor-profile.jpg" alt="Doctor Profile Picture">
             </div>
+            <h1>Status</h1>
             <div id="doc-status">
                 <input type="radio" name="status" id="available">
                 <label for="available" class="status-btn available">Available</label>
@@ -96,40 +96,84 @@
             <div class="schedule-infos">
                 <div class="schedule-info">
                     <strong>Sunday:</strong>
-                    <input type="time" name="start-sunday" id="start-sunday" value="09:00">
-                    <span>to</span>
-                    <input type="time" name="end-sunday" id="end-sunday" value="17:00">
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="f-start-sunday" id="f-start-sunday" value="09:00"> 
+                        <span>to</span>
+                        <input type="time" name="f-end-sunday" id="f-end-sunday" value="11:00"> 
+                    </div>
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="s-start-sunday" id="s-start-sunday" value="14:00"> 
+                        <span>to</span>
+                        <input type="time" name="s-end-sunday" id="s-end-sunday" value="17:00"> 
+                    </div>
                 </div>
-                <div class="schedule-infos">
-                    <div class="schedule-info">
-                        <strong>Monday:</strong>
-                        <input type="time" name="start-monday" id="start-monday" value="08:00">
+                <div class="schedule-info">
+                    <strong>Monday:</strong>
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="f-start-monday" id="f-start-monday" value="09:00"> 
                         <span>to</span>
-                        <input type="time" name="end-monday" id="end-monday" value="16:00">
+                        <input type="time" name="f-end-monday" id="f-end-monday" value="11:00"> 
                     </div>
-                    <div class="schedule-info">
-                        <strong>Tuesday:</strong>
-                        <input type="time" name="start-tuesday" id="start-tuesday" value="09:00">
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="s-start-monday" id="s-start-monday" value="14:00"> 
                         <span>to</span>
-                        <input type="time" name="end-tuesday" id="end-tuesday" value="15:00">
+                        <input type="time" name="s-end-monday" id="s-end-monday" value="17:00"> 
                     </div>
-                    <div class="schedule-info">
-                        <strong>Wednesday:</strong>
-                        <input type="time" name="start-wednesday" id="start-wednesday" value="09:00">
+                </div>
+                <div class="schedule-info">
+                    <strong>Tuesday:</strong>
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="f-start-tuesday" id="f-start-tuesday" value="09:00"> 
                         <span>to</span>
-                        <input type="time" name="end-wednesday" id="end-wednesday" value="12:00">
+                        <input type="time" name="f-end-tuesday" id="f-end-tuesday" value="11:00"> 
                     </div>
-                    <div class="schedule-info">
-                        <strong>Thursday:</strong>
-                        <input type="time" name="start-thursday" id="start-thursday" value="12:00">
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="s-start-tuesday" id="s-start-tuesday" value="14:00"> 
                         <span>to</span>
-                        <input type="time" name="end-thursday" id="end-thursday" value="17:00">
+                        <input type="time" name="s-end-tuesday" id="s-end-tuesday" value="17:00"> 
                     </div>
+                </div>
+                <div class="schedule-info">
+                    <strong>Wednesday:</strong>
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="f-start-wednesday" id="f-start-wednesday" value="09:00"> 
+                        <span>to</span>
+                        <input type="time" name="f-end-wednesday" id="f-end-wednesday" value="11:00"> 
+                    </div>
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="s-start-wednesday" id="s-start-wednesday" value="14:00"> 
+                        <span>to</span>
+                        <input type="time" name="s-end-wednesday" id="s-end-wednesday" value="17:00"> 
+                    </div>
+                </div>
+                <div class="schedule-info">
+                    <strong>Thursday:</strong>
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="f-start-thursday" id="f-start-thursday" value="09:00"> 
+                        <span>to</span>
+                        <input type="time" name="f-end-thursday" id="f-end-thursday" value="11:00"> 
+                    </div>
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="s-start-thursday" id="s-start-thursday" value="14:00"> 
+                        <span>to</span>
+                        <input type="time" name="s-end-thursday" id="s-end-thursday" value="17:00"> 
+                    </div>
+                </div>
                     <div class="schedule-info">
                         <input type="button" value="Update Schedule" id="doctor-update-schedule">
                     </div>
+                </div>
             </div>
-        </div>
     </main>
     <footer>
         <div id="contactInfo">
@@ -149,6 +193,7 @@
             <a href="https://x.com/_PNU_KSA" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </footer>
+    <script src="../script.js"></script>
 </body>
 
 </html>

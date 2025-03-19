@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctors Reminder</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style/admin.css">
     <link rel="icon" href="../Images/Icon.png" type="image/x-icon">
@@ -51,10 +50,10 @@
                 <input type="button" value="Create new account" id="create-account-btn">
             </div>
             <div class="account-filter">
-                <input type="button" value="Student" class="btn active">
-                <input type="button" value="Teacher" class=" btn">
+                <input type="button" value="Student" class="btn active" id="studentBtn">
+                <input type="button" value="Doctor" class=" btn" id="doctorBtn">
             </div>
-            <div class="accounts-table active" id="doctors">
+            <div class="accounts-table " id="doctors">
                 <table>
                     <tr>
                         <th>Name</th>
@@ -73,11 +72,12 @@
                         <td>saalswailim@pnu.edu.sa"</td>
                         <td>12345</td>
                         <td><input type="button" value="delete">
-                        <input type="button" value="edit"></td>
+                            <input type="button" value="edit">
+                        </td>
                     </tr>
                 </table>
             </div>
-            <div class="accounts-table" id="students">
+            <div class="accounts-table active" id="students">
                 <table>
                     <tr>
                         <th>Name</th>
@@ -90,15 +90,16 @@
                         <th>Actions</th>
                     </tr>
                     <tr>
-                       <td>Abeer Faris Ali</td> 
-                       <td>9669</td>
-                       <td>Computer Science</td>
-                       <td>2024-2025</td>
-                       <td>+96618811111</td>
-                       <td> abeer@pnu.edu.sa</td>
-                       <td>4547ee7</td>
-                       <td><input type="button" value="delete">
-                        <input type="button" value="edit"></td>
+                        <td>Abeer Faris Ali</td>
+                        <td>9669</td>
+                        <td>Computer Science</td>
+                        <td>2024-2025</td>
+                        <td>+96618811111</td>
+                        <td> abeer@pnu.edu.sa</td>
+                        <td>4547ee7</td>
+                        <td><input type="button" value="delete">
+                            <input type="button" value="edit">
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -107,6 +108,86 @@
             <h1>Manage FAQ</h1>
             <input type="button" value="Manage FAQ">
         </div>
+        <div class="create-account-pg">
+            <h1>Create New Account</h1>
+            <div class="accBtnType">
+                <input type="button" value="Student" class="btn active" id="studentBtn">
+                <input type="button" value="Doctor" class="btn" id="doctorBtn">
+            </div>
+            <form action="" class="student-create active">
+                <div class="formDiv">
+                    <label for="Name">Name:</label>
+                    <input type="text" name="student-name" id="student-name">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">ID:</label>
+                    <input type="text" name="student-id" id="student-id">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Major:</label>
+                    <input type="text" name="student-major" id="student-major">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Year:</label>
+                    <input type="text" name="student-year" id="student-year">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Phone Number:</label>
+                    <input type="number" name="student-phone" id="student-phone">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Profile Picture:</label>
+                    <input type="file" name="student-profile" id="student-profile">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Email:</label>
+                    <input type="email" name="student-email" id="student-email">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Password:</label>
+                    <input type="password" name="student-password" id="student-password">
+                </div>
+                <div class="formDiv">
+                    <input type="button" value="Save">
+                    <input type="button" value="Cancel">
+                </div>
+            </form>
+            <form action="" class="doctor-create">
+                <div class="formDiv">
+                    <label for="Name">Name:</label>
+                    <input type="text" name="doctor-name" id="doctor-name">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Office:</label>
+                    <input type="text" name="doctor-office" id="doctor-office">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Course:</label>
+                    <input type="text" name="doctor-course" id="doctor-course">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Call-forwarding:</label>
+                    <input type="number" name="doctor-phone" id="doctor-phone">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Profile Picture:</label>
+                    <input type="file" name="doctor-profile" id="doctor-profile">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Email:</label>
+                    <input type="email" name="doctor-email" id="doctor-email">
+                </div>
+                <div class="formDiv">
+                    <label for="Name">Password:</label>
+                    <input type="password" name="doctor-password" id="doctor-password">
+                </div>
+                <div class="formDiv">
+                    <input type="button" value="Save">
+                    <input type="button" value="Cancel">
+                </div>
+            </form>
+        </div>
+        <div class="createAccPgBC"></div>
     </main>
     <footer>
         <div id="contactInfo">
@@ -126,6 +207,7 @@
             <a href="https://x.com/_PNU_KSA" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </footer>
+    <script src="../script.js"></script>
 </body>
 
 </html>

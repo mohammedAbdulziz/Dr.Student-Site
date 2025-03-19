@@ -99,8 +99,12 @@ main{
     font-size: 1.2rem;
     cursor: pointer;
 }
+.doctor-detail:last-of-type input:hover{
+    background-color:#6859f0;
+    color:white;
+}
 .doctor-schedule{
-    width:40%;
+    width:30%;
     border-left: #0095D7 solid 0.2rem;
     padding-left: 2rem;
     height: fit-content;
@@ -122,8 +126,20 @@ main{
 .doctor-schedule .schedule-infos .schedule-info strong{
     width:15%
 }
+.doctor-schedule .schedule-infos .schedule-info span{
+    display: block;
+    margin: 0.4rem 0;
+    font-size: 1rem;
+}
+.schedule-infos .schedule-info .time-ctrl{
+    display: flex;
+    justify-content: space-between;
+}
+.schedule-info .schedule-info .time-ctrl span{
+    width:26%;
+}
 .doctor-schedule .schedule-infos .schedule-info input{
-    width:37%;
+    width:45%;
     padding:0.2rem;
     border-radius: 0.6rem;
     border:solid 0.1rem grey;
@@ -132,7 +148,7 @@ main{
   
 }
 .doctor-schedule .schedule-infos .schedule-info:last-of-type{
-    display: block;
+    display: flex;
     justify-content: center;
     margin-top: 1rem;
 
@@ -143,4 +159,8 @@ main{
     font-size: 1.2rem;
     cursor: pointer;
     padding:0.6rem;
+}
+#doctor-update-schedule:hover{
+background-color: #6859f0;
+color:white;
 }
