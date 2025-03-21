@@ -6,9 +6,15 @@ html{
     background-color: #0095D7;
     box-shadow: 0px 0px 5px grey;
 }
+#faqBtn:hover{
+    background-color: #4ebbea;
+}
 #logOutBtn{
     background-color: #49A787;
     box-shadow: 0px 0px 5px grey;
+}
+#logOutBtn:hover{
+    background-color: #9ADDB9;
 }
 .title{
     width:100%;

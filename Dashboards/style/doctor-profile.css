@@ -1,0 +1,16 @@
+main .doctor-info{
+    height: fit-content;
+}
+main .doctor-info #doc-status label{
+    display: none;
+}
+main .doctor-info #doc-status label.active{
+    width:100%;
+    display: block;
+    text-align: center;
+    color: white;
+}
+
+main .doctor-info .doctor-details .doctor-detail:last-of-type{
+    display: none;
+}

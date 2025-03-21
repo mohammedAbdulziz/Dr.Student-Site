@@ -105,6 +105,9 @@ header {
     border-radius: 16.6376px;
     box-shadow: 0px 0px 5px grey;
 }
+#topHeader #arEnBtn:hover{
+    background-color: #b6aff5;
+}
 
 #topHeader #loginBtn {
     background-color: #49A787;
@@ -190,6 +193,7 @@ main #loginCont input {
     border-color: #a7aeab;
     border-style: solid;
     border-width: 0.12rem;
+    padding:0 1rem;
 }
 
 main #loginCont form div:last-of-type {
@@ -210,6 +214,10 @@ main #loginCont form .formDiv #logInBtn {
     font-size: 1.3rem;
     cursor: pointer;
     box-shadow: 0px 0px 5px grey;
+    font-weight: 600;
+}
+main #loginCont form .formDiv #logInBtn:hover{
+    background-color: #90eccd;
 }
 
 
