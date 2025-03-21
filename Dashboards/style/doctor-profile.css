@@ -1,16 +1,30 @@
 main .doctor-info{
     height: fit-content;
 }
+
 main .doctor-info #doc-status label{
-    display: none;
-}
-main .doctor-info #doc-status label.active{
     width:100%;
-    display: block;
+    display: none;
     text-align: center;
     color: white;
+    cursor:auto;
+}
+main .doctor-info #doc-status label:first-of-type:hover{
+    color:white;
+    background-color:#0095D7;
+}
+main .doctor-info #doc-status label:nth-of-type(2):hover{
+    color: white;
+    background-color: #49A787;
+}
+main .doctor-info #doc-status label.active{
+    display: block;
 }
 
 main .doctor-info .doctor-details .doctor-detail:last-of-type{
+    display: none;
+}
+
+main .doctor-schedule .schedule-infos .schedule-info:last-of-type{
     display: none;
 }

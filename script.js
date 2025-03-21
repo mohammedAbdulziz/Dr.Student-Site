@@ -48,15 +48,16 @@ crtAccDoctorBtn.addEventListener('click', function () {
 })
 
 //## ## ## 
-const crtAccCancelBtn = document.querySelector('main .create-account-pg form .formDiv:last-of-type input:last-of-type');
+const crtAccCancelBtn = document.querySelectorAll('main .create-account-pg form .formDiv:last-of-type input:last-of-type');
 const crtAccPg = document.querySelector('.create-account-pg');
 const crtAccPgCancel = document.querySelector('.createAccPgBC');
-
-crtAccCancelBtn.addEventListener('click', function () {
-    crtAccPg.style.display = 'none';
-    crtAccPgCancel.style.display = 'none';
-})
-
+console.log(crtAccCancelBtn.length);
+for(let i=0;i<crtAccCancelBtn.length;i++){
+    crtAccCancelBtn[i].addEventListener('click', function () {
+        crtAccPg.style.display = 'none';
+        crtAccPgCancel.style.display = 'none';
+    })  
+}
 // ###### #########
 const adminAccPgAppear = document.querySelector('main .manage-accounts .new-account input');
 
