@@ -68,3 +68,9 @@ adminAccPgAppear.addEventListener('click', function () {
     }, 100);
 
 })
+
+const faqPgBtn = document.querySelector('.manage-faq input');
+
+faqPgBtn.addEventListener('click',function(){
+    window.location.href='./faq-manage.html';
+})
