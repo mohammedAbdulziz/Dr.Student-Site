@@ -36,8 +36,8 @@
                     <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
-                    <a href="../pages/faq.html" id="faqBtn">FAQ</a>
-                    <a href="../index.html" id="logOutBtn">Log Out</a>
+                    <a href="../pages/faq.php" id="faqBtn">FAQ</a>
+                    <a href="../index.php" id="logOutBtn">Log Out</a>
                 </li>
             </ul>
             <h1>Doctors Reminder</h1>
@@ -95,7 +95,7 @@
                     <strong>Email: </strong>
                     <a href="mailto:naaali@pnu.edu.sa" id="doctor-email">naaali@pnu.edu.sa</a>
                 </p>
-                <a href="./doctor-profile.html" target="_blank" id="doctor-profile">Profile</a>
+                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
             </div>
             <div class="doctor-info">
                 <p>
@@ -114,7 +114,7 @@
                     <strong>Email: </strong>
                     <a href="mailto:imalihilali@pnu.edu.sa" id="doctor-email" >imalihilali@pnu.edu.sa</a>
                 </p>
-                <a href="./doctor-profile.html" target="_blank" id="doctor-profile">Profile</a>
+                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
             </div>
             <div class="doctor-info">
                 <p>
@@ -133,7 +133,7 @@
                     <strong>Email: </strong>
                     <a href="mailto:ASMagdich@pnu.edu.sa" id="doctor-email">ASMagdich@pnu.edu.sa</a>
                 </p>
-                <a href="./doctor-profile.html" target="_blank" id="doctor-profile">Profile</a>
+                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
             </div>
             <div class="doctor-info">
                 <p>
@@ -152,7 +152,7 @@
                     <strong>Email: </strong>
                     <a href="mailto:hsannahidh@pnu.edu.sa" id="doctor-email">hsannahidh@pnu.edu.sa</a>
                 </p>
-                <a href="./doctor-profile.html" target="_blank" id="doctor-profile">Profile</a>
+                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
             </div>
             <div class="doctor-info">
                 <p>
@@ -171,7 +171,7 @@
                     <strong>Email: </strong>
                     <a href="mailto:saalswailim@pnu.edu.sa" id="doctor-email">saalswailim@pnu.edu.sa</a>
                 </p>
-                <a href="./doctor-profile.html" target="_blank" id="doctor-profile">Profile</a>
+                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
             </div>
         </div>
     </main>

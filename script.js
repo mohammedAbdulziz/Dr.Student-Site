@@ -4,7 +4,7 @@ function homePage() {
 }
 const firstHeader = document.querySelector('#topHeader #logo');
 firstHeader.addEventListener('click', function () {
-    window.location.href = '../index.html'
+    window.location.href = '../index.php'
 })
 
 //admin page codes ##########################################################################################
@@ -72,5 +72,5 @@ adminAccPgAppear.addEventListener('click', function () {
 const faqPgBtn = document.querySelector('.manage-faq input');
 
 faqPgBtn.addEventListener('click',function(){
-    window.location.href='./faq-manage.html';
+    window.location.href='./faq-manage.php';
 })

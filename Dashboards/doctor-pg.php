@@ -36,8 +36,8 @@
                     <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
-                    <a href="../pages/faq.html" id="faqBtn">FAQ</a>
-                    <a href="../index.html" id="logOutBtn">Log Out</a>
+                    <a href="../pages/faq.php" id="faqBtn">FAQ</a>
+                    <a href="../index.php" id="logOutBtn">Log Out</a>
                 </li>
             </ul>
             <h1>Doctors Reminder</h1>
