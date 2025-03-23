@@ -1,3 +1,9 @@
+<?php require_once '../includes/db_config.php';
+$query_students = "select * from students";
+$query_doctors = "select * from doctors";
+$result_students = mysqli_query($conn, $query_students);
+$result_doctors = mysqli_query($conn, $query_doctors)
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,19 +68,27 @@
                         <th>Call forwarding</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Actions</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                    <tr>
-                        <td>T. Shahlaa` Al-Swailim</td>
-                        <td>1.501.19</td>
-                        <td>Python</td>
-                        <td>37362</td>
-                        <td>saalswailim@pnu.edu.sa"</td>
-                        <td>12345</td>
-                        <td><input type="button" value="delete">
-                            <input type="button" value="edit">
-                        </td>
-                    </tr>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result_doctors)) {
+
+                    ?>
+                        <tr>
+                            <td><?php echo $row["name"];?></td>
+                            <td><?php echo $row["office"];?></td>
+                            <td><?php echo $row["course"];?></td>
+                            <td><?php echo $row["phone_number"];?></td>
+                            <td><?php echo $row["email"];?></td>
+                            <td><?php echo $row["password"];?></td>
+                            <td><input type="button" value="delete"></td>
+                            <td><input type="button" value="edit"></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+
                 </table>
             </div>
             <div class="accounts-table active" id="students">
@@ -87,20 +101,28 @@
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Actions</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                    <tr>
-                        <td>Abeer Faris Ali</td>
-                        <td>9669</td>
-                        <td>Computer Science</td>
-                        <td>2024-2025</td>
-                        <td>+96618811111</td>
-                        <td> abeer@pnu.edu.sa</td>
-                        <td>4547ee7</td>
-                        <td><input type="button" value="delete">
-                            <input type="button" value="edit">
-                        </td>
-                    </tr>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result_students)) {
+
+                    ?>
+                        <tr>
+                            <td><?php echo $row["name"] ?></td>
+                            <td><?php echo $row["id"] ?></td>
+                            <td><?php echo $row["major"] ?></td>
+                            <td><?php echo $row["year"] ?></td>
+                            <td><?php echo $row["phone_number"] ?></td>
+                            <td><?php echo $row["email"] ?></td>
+                            <td><?php echo $row["password"] ?></td>
+                            <td><input type="button" value="delete"></td>
+                            <td><input type="button" value="edit"></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+
                 </table>
             </div>
         </div>
