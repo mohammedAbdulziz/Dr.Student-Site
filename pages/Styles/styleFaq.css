@@ -46,6 +46,7 @@ main::before {
     padding: 1rem;
     border-width: 0.1rem;
     font-size: 1.1rem;
+    width:100%;
 }
 
 #faq-container .faq-item .question {
