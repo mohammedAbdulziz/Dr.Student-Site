@@ -54,9 +54,11 @@ $result_faq = mysqli_query($conn, $query_faq);
             <h1>Frequently Asked Questions</h1>
             <input type="button" value="Add FAQ" id="add-faq">
             <div class="faq-item faqAdd">
-                <input type="text" name="question" id="addQst" placeholder="Question">
-                <textarea name="question" id="addAns" placeholder="Answer"></textarea>
-                <input type="button" value="Add">
+                <form action="/Dashboards/functions/faqPost.php" method="post">
+                    <input type="text" name="question" id="addQst" placeholder="Question">
+                    <textarea name="answer" id="addAns" placeholder="Answer"></textarea>
+                    <input type="submit" value="Add" name="submit">
+                </form>
             </div>
             <!-- <div class="faq-item">
                 <div class="question">
@@ -75,23 +77,23 @@ $result_faq = mysqli_query($conn, $query_faq);
             <?php
             while ($row = mysqli_fetch_assoc($result_faq)) {
             ?>
-            <div class="faq-item">
-                <div class="question">
-                    <span>
+                <div class="faq-item">
+                    <div class="question">
+                        <span>
+                            <?php
+                            echo $row["question"];
+                            ?>
+                        </span>
+                    </div>
+                    <div class="answer">
                         <?php
-                        echo $row["question"];
+                        echo $row["answer"];
                         ?>
-                    </span>
+                    </div>
+                    <div class="edits">
+                        <a href=<?php echo "/Dashboards/functions/faqDelete.php?id=" . $row['id']?> class='remove-faq'>Delete</a>
+                    </div>
                 </div>
-                <div class="answer">
-                    <?php
-                    echo $row["answer"];
-                    ?>
-                </div>
-                <div class="edits">
-                    <input type="button" value="Delete" class="remove-faq">
-                </div>
-            </div>
             <?php
             }
             ?>

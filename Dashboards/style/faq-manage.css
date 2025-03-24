@@ -69,7 +69,50 @@ footer {
     margin-top: 1rem;
 }
 
+#faq-container input[type="submit"] {
+    display: block;
+    padding: 0.4rem;
+    width: 10rem;
+    border-radius: 0.8rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 0 0.5rem rgb(88, 88, 88);
+    background-color: rgb(206, 26, 35);
+    color: white;
+    cursor: pointer;
+
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+#faq-container .faq-item .edits a {
+    display: block;
+    padding: 0.4rem;
+    padding-top: 0.5rem;
+    width: 10rem;
+    border-radius: 0.8rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 0 0.5rem rgb(88, 88, 88);
+    background-color: rgb(206, 26, 35);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    height: 2.5rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 #faq-container input[type="button"]:hover {
+    background-color: rgb(253, 135, 141);
+    color: black;
+}
+
+#faq-container .faq-item .edits a:hover {
+    background-color: rgb(253, 135, 141);
+    color: black;
+}
+
+#faq-container input[type="submit"]:hover {
     background-color: rgb(253, 135, 141);
     color: black;
 }
