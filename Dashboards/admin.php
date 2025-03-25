@@ -56,13 +56,14 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                 <input type="button" value="Create new account" id="create-account-btn">
             </div>
             <div class="account-filter">
-                <input type="button" value="Student" class="btn active" id="studentBtn">
-                <input type="button" value="Doctor" class=" btn" id="doctorBtn">
+                <input type="button" value="Students" class="btn active" id="studentBtn">
+                <input type="button" value="Doctors" class=" btn" id="doctorBtn">
             </div>
             <div class="accounts-table " id="doctors">
                 <table>
                     <tr>
                         <th>Name</th>
+                        <th>Doctor ID</th>
                         <th>Office</th>
                         <th>Course</th>
                         <th>Call forwarding</th>
@@ -76,14 +77,28 @@ $result_doctors = mysqli_query($conn, $query_doctors)
 
                     ?>
                         <tr>
-                            <td><?php echo $row["name"];?></td>
-                            <td><?php echo $row["office"];?></td>
-                            <td><?php echo $row["course"];?></td>
-                            <td><?php echo $row["phone_number"];?></td>
-                            <td><?php echo $row["email"];?></td>
-                            <td><?php echo $row["password"];?></td>
-                            <td><input type="button" value="delete"></td>
-                            <td><input type="button" value="edit"></td>
+                            <td><?php echo $row["name"]; ?></td>
+                            <td><?php echo $row["id"]; ?></td>
+                            <td><?php echo $row["office"]; ?></td>
+                            <td><?php echo $row["course"]; ?></td>
+                            <td><?php echo $row["phone_number"]; ?></td>
+                            <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["password"]; ?></td>
+                            <td><button><?php echo "<a href='/Dashboards/functions/doctorDelete.php?id=" . $row["id"] . "'>Delete</a>" ?></button></td>
+                            <td><button class="doctor-edit">Edit</button></td>
+                        </tr>
+                        <tr id="doctorEditRow<?php echo $row["id"];?>">
+                            <form action="/Dashboards/functions/doctorUpdate.php" method="post">
+                                <td><input type="text" name="name" id="doctor-name" value="<?php echo $row["name"]?>"></td>
+                                <td><input type="number" name="id" id="doctor-id" value="<?php echo $row["id"]?>" style="visibility: hidden;"></td>
+                                <td><input type="text" name="office" id="doctor-office" value="<?php echo $row["office"]?>"></td>
+                                <td><input type="text" name="course" id="doctor-course" value="<?php echo $row["course"]?>"></td>
+                                <td><input type="number" name="phone_number" id="doctor-number" value="<?php echo $row["phone_number"]?>"></td>
+                                <td><input type="email" name="email" id="doctor-email" value="<?php echo $row["email"]?>"></td>
+                                <td><input type="password" name="password" id="doctor-password" value="<?php echo $row["password"]?>"></td>
+                                <td><button type="button">Cancel</button></td>
+                                <td><input type="submit" value="Update " name="submit"></td>
+                            </form>
                         </tr>
                     <?php
                     }
@@ -116,8 +131,23 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                             <td><?php echo $row["phone_number"] ?></td>
                             <td><?php echo $row["email"] ?></td>
                             <td><?php echo $row["password"] ?></td>
-                            <td><input type="button" value="delete"></td>
-                            <td><input type="button" value="edit"></td>
+                            <td><button><?php echo "<a href='/Dashboards/functions/studentDelete.php?id=" . $row["id"] . "'>Delete</a>" ?></button></td>
+                            <td><button class="student-edit">Edit</button></td>
+                        </tr>
+                        <tr id="studentEditRow<?php echo$row["id"]?>">
+                            <form action="/Dashboards/functions/studentUpdate.php" method="post">
+
+                                <td><input type="text" name="name" id="student-name" value="<?php echo $row["name"] ?>"></td>
+                                <td><input type="number" name="id" id="student-id" value="<?php echo $row["id"] ?>" style="visibility: hidden;"></td>
+                                <td><input type="text" name="major" id="student-major" value="<?php echo $row["major"] ?>"></td>
+                                <td><input type="text" name="year" id="student-year" value="<?php echo $row["year"] ?>"></td>
+                                <td><input type="number" name="phone_number" id="student-number" value="<?php echo $row["phone_number"] ?>"></td>
+                                <td><input type="email" name="email" id="student-email"
+                                        value=" <?php echo $row["email"] ?>"></td>
+                                <td><input type="password" name="password" id="student-password" value="<?php echo $row["password"] ?>"></td>
+                                <td><button type="button">Cancel</button></td>
+                                <td><input type="submit" value="Update " name="submit"></td>
+                            </form>
                         </tr>
                     <?php
                     }
@@ -136,75 +166,79 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                 <input type="button" value="Student" class="btn active" id="studentBtn">
                 <input type="button" value="Doctor" class="btn" id="doctorBtn">
             </div>
-            <form action="" class="student-create active">
+            <form action="/Dashboards/functions/studentPost.php" class="student-create active" method="post">
                 <div class="formDiv">
                     <label for="Name">Name:</label>
-                    <input type="text" name="student-name" id="student-name">
+                    <input type="text" name="name" id="studentName">
                 </div>
                 <div class="formDiv">
                     <label for="Name">ID:</label>
-                    <input type="text" name="student-id" id="student-id">
+                    <input type="text" name="id" id="studentId">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Major:</label>
-                    <input type="text" name="student-major" id="student-major">
+                    <input type="text" name="major" id="studentMajor">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Year:</label>
-                    <input type="text" name="student-year" id="student-year">
+                    <input type="text" name="year" id="studentYear">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Phone Number:</label>
-                    <input type="number" name="student-phone" id="student-phone">
+                    <input type="number" name="phone_number" id="studentPhone">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Profile Picture:</label>
-                    <input type="file" name="student-profile" id="student-profile">
+                    <input type="file" name="profile" id="studentProfile">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Email:</label>
-                    <input type="email" name="student-email" id="student-email">
+                    <input type="email" name="email" id="studentEmail">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Password:</label>
-                    <input type="password" name="student-password" id="student-password">
+                    <input type="password" name="password" id="studentPassword">
                 </div>
                 <div class="formDiv">
-                    <input type="button" value="Save">
+                    <input type="submit" value="Save" name="submit">
                     <input type="button" value="Cancel">
                 </div>
             </form>
-            <form action="" class="doctor-create">
+            <form action="/Dashboards/functions/doctorPost.php" class="doctor-create" method="post">
                 <div class="formDiv">
                     <label for="Name">Name:</label>
-                    <input type="text" name="doctor-name" id="doctor-name">
+                    <input type="text" name="name" id="doctorName">
+                </div>
+                <div class="formDiv">
+                    <label for="id">Doctor ID:</label>
+                    <input type="number" name="id" id="doctorID">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Office:</label>
-                    <input type="text" name="doctor-office" id="doctor-office">
+                    <input type="text" name="office" id="doctorOffice">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Course:</label>
-                    <input type="text" name="doctor-course" id="doctor-course">
+                    <input type="text" name="course" id="doctorCourse">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Call-forwarding:</label>
-                    <input type="number" name="doctor-phone" id="doctor-phone">
+                    <input type="number" name="phone_number" id="doctorPhone">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Profile Picture:</label>
-                    <input type="file" name="doctor-profile" id="doctor-profile">
+                    <input type="file" name="profile" id="doctorProfile">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Email:</label>
-                    <input type="email" name="doctor-email" id="doctor-email">
+                    <input type="email" name="email" id="doctorEmail">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Password:</label>
-                    <input type="password" name="doctor-password" id="doctor-password">
+                    <input type="password" name="password" id="doctorPassword">
                 </div>
                 <div class="formDiv">
-                    <input type="button" value="Save">
+                    <input type="submit" value="Save" name="submit">
                     <input type="button" value="Cancel">
                 </div>
             </form>
@@ -230,6 +264,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
         </div>
     </footer>
     <script src="../script.js"></script>
+    <script src="./scripts/admin.js"></script>
 </body>
 
 </html>
