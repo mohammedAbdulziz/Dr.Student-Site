@@ -1,3 +1,42 @@
+<?php 
+require_once "../includes/db_config.php";
+$error="";
+if(isset($_GET["submit"])){
+    $email=$_GET["email"];
+    $password=$_GET["password"];
+    $admin_email="guest@g.com";
+    $admin_password="1234";
+    $students_query="select * from students";
+    $doctors_query="select * from doctors";
+
+    $s_results=mysqli_query($conn, $students_query);
+    $d_results=mysqli_query($conn, $doctors_query);
+
+    if($email==$admin_email && $password==$admin_password){
+        header("Location:../Dashboards/admin.php");
+    }
+
+    while($row=mysqli_fetch_assoc($s_results)){
+        $s_email =$row["email"];
+        $s_password = $row["password"];
+        if($email==$s_email && $password == $s_password){
+            // echo "Student email $s_email and student password $s_password";
+            header("Location:../Dashboards/studentpg.php?id=".$row["id"]);
+        }
+    }
+    while($row=mysqli_fetch_assoc($d_results)){
+        $d_email = $row["email"];
+        $d_password= $row["password"];
+        if($email==$d_email && $password ==$d_password){
+            // echo "Doctor email $d_email and doctor password $d_password";
+            header("Location:../Dashboards/doctor-pg.php?id=".$row["id"]);
+        }
+    }
+    $error="Wrong Password! Try again";
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +82,7 @@
     <main>
         <div id="loginCont">
             <img src="../Images/logo.png" alt="logo">
-            <form action="">
+            <form action="#" method="get">
                 <div class="formDiv">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="  Enter email">
@@ -53,7 +92,8 @@
                     <input type="password" name="password" id="password" placeholder="  Enter password">
                 </div>
                 <div class="formDiv">
-                    <input type="button" value="Login" id="logInBtn">
+                    <h3 style="color: red;"><?php echo $error?></h3>
+                    <input type="submit" value="Login" id="logInBtn" name="submit">
                 </div>
             </form>
 
