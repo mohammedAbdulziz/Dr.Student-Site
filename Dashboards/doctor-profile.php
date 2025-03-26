@@ -1,6 +1,16 @@
-<?php 
-require_once '../includes/db_config.php'
+<?php
+require_once '../includes/db_config.php';
 
+$id = $_GET['id'];
+
+$sql = "select * from doctors where id=$id";
+$sql_schedule = "select * from doctor_schedule where id=$id";
+
+$result = mysqli_query($conn, $sql);
+$result_schedule = mysqli_query($conn, $sql_schedule);
+
+$row = mysqli_fetch_assoc($result);
+$row_schedule = mysqli_fetch_assoc($result_schedule);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,32 +60,40 @@ require_once '../includes/db_config.php'
     </header>
     <main>
         <div class="doctor-info">
-            <h1>hi</h1>
+            <h1><?php echo $row['name']; ?></h1>
             <div id="doc-profile-pic">
                 <img src="../Images/doctor-profile.jpg" alt="Doctor Profile Picture">
             </div>
             <h1>Status</h1>
             <div id="doc-status">
                 <!-- <input type="radio" name="status" id="available"> -->
-                <label for="available" class="status-btn available active">Available</label>
+                <label for="available" class="status-btn available <?php if ($row_schedule['status'] == "available") {
+                                                                        echo "active";
+                                                                    } else {
+                                                                        echo "";
+                                                                    } ?>">Available</label>
                 <!-- <input type="radio" name="status" id="not-available"> -->
-                <label for="not-available" class="status-btn not-available">Not Available</label>
+                <label for="not_available" class="status-btn not-available <?php if ($row_schedule['status'] == "not_available") {
+                                                                                echo "active";
+                                                                            } else {
+                                                                                echo "";
+                                                                            } ?>">Not Available</label>
             </div>
             <div class="doctor-details">
                 <h1>Information</h1>
                 <div class="doctor-detail">
                     <strong>Name:</strong>
-                    <input type="text" name="doctor-name" id="doctor-name" placeholder="T. Shahlaa` Al-Swailim" disabled>
+                    <input type="text" name="doctor-name" id="doctor-name" placeholder="<?php echo $row['name']; ?>" disabled>
                 </div>
                 <div class="doctor-detail">
                     <strong>Office Number:</strong>
-                    <input type="text" name="doctor-office" id="doctor-office" placeholder="1.501.19" disabled> 
+                    <input type="text" name="doctor-office" id="doctor-office" placeholder="<?php echo $row['office']; ?>" disabled>
                 </div>
                 <div class="doctor-detail">
                     <strong>
                         Course Name:
                     </strong>
-                    <input type="text" name="doctor-course" id="doctor-course" placeholder="Python" disabled>
+                    <input type="text" name="doctor-course" id="doctor-course" placeholder="<?php echo $row['course']; ?>" disabled>
                 </div>
                 <div class="doctor-detail">
                     <strong>
@@ -85,11 +103,11 @@ require_once '../includes/db_config.php'
                 </div>
                 <div class="doctor-detail">
                     <strong>Call forwarding:</strong>
-                    <input type="number" name="doctor-phone" id="doctor-phone" placeholder="37362" disabled>
+                    <input type="number" name="doctor-phone" id="doctor-phone" placeholder="<?php echo $row['phone_number']; ?>" disabled>
                 </div>
                 <div class="doctor-detail">
                     <strong>Email:</strong>
-                    <input type="email" name="doctor-email" id="doctor-email" placeholder="saalswailim@pnu.edu.sa" disabled>
+                    <input type="email" name="doctor-email" id="doctor-email" placeholder="<?php echo $row['email']; ?>" disabled>
                 </div>
                 <div class="doctor-detail">
                     <input type="button" value="Update" id="doctor-update">
@@ -100,85 +118,100 @@ require_once '../includes/db_config.php'
             <h1>Schedule</h1>
             <div class="schedule-infos">
                 <div class="schedule-info">
-                    <strong>Sunday:</strong>
+                    <strong>Saturday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="f-start-sunday" id="f-start-sunday" value="09:00" disabled> 
+                        <input type="time" name="sat_fs" class="s" value="<?php echo $row_schedule['sat_fs'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="f-end-sunday" id="f-end-sunday" value="11:00" disabled> 
+                        <input type="time" name="sat_fe" class="e" value="<?php echo $row_schedule['sat_fe'] ?>" disabled>
                     </div>
                     <span>Second Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="s-start-sunday" id="s-start-sunday" value="14:00" disabled> 
+                        <input type="time" name="sat_ss" class="s" value="<?php echo $row_schedule['sat_ss'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="s-end-sunday" id="s-end-sunday" value="17:00" disabled> 
+                        <input type="time" name="sat_se" class="e" value="<?php echo $row_schedule['sat_se'] ?>" disabled>
+                    </div>
+                </div>
+                <div class="schedule-info">
+                    <strong>Sunday:</strong>
+                    <span>First Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="sun_fs" class="s" value="<?php echo $row_schedule['sun_fs'] ?>" disabled>
+                        <span>to</span>
+                        <input type="time" name="sun_fe" class="e" value="<?php echo $row_schedule['sun_fe'] ?>" disabled>
+                    </div>
+                    <span>Second Shift</span>
+                    <div class="time-ctrl">
+                        <input type="time" name="sun_ss" class="s" value="<?php echo $row_schedule['sun_ss'] ?>" disabled>
+                        <span>to</span>
+                        <input type="time" name="sun_se" class="e" value="<?php echo $row_schedule['sun_se'] ?>" disabled>
                     </div>
                 </div>
                 <div class="schedule-info">
                     <strong>Monday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="f-start-monday" id="f-start-monday" value="09:00" disabled> 
+                        <input type="time" name="mon_fs" class="s" value="<?php echo $row_schedule['mon_fs'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="f-end-monday" id="f-end-monday" value="11:00" disabled> 
+                        <input type="time" name="mon_fe" class="e" value="<?php echo $row_schedule['mon_fe'] ?>" disabled>
                     </div>
                     <span>Second Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="s-start-monday" id="s-start-monday" value="14:00" disabled> 
+                        <input type="time" name="mon_ss" class="s" value="<?php echo $row_schedule['mon_ss'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="s-end-monday" id="s-end-monday" value="17:00" disabled> 
+                        <input type="time" name="mon_se" class="e" value="<?php echo $row_schedule['mon_se'] ?>" disabled>
                     </div>
                 </div>
                 <div class="schedule-info">
                     <strong>Tuesday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="f-start-tuesday" id="f-start-tuesday" value="09:00" disabled> 
+                        <input type="time" name="tue_fs" class="s" value="<?php echo $row_schedule['tue_fs'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="f-end-tuesday" id="f-end-tuesday" value="11:00" disabled> 
+                        <input type="time" name="tue_fe" class="e" value="<?php echo $row_schedule['tue_fe'] ?>" disabled>
                     </div>
                     <span>Second Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="s-start-tuesday" id="s-start-tuesday" value="14:00" disabled> 
+                        <input type="time" name="tue_ss" class="s" value="<?php echo $row_schedule['tue_ss'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="s-end-tuesday" id="s-end-tuesday" value="17:00" disabled> 
+                        <input type="time" name="tue_se" class="e" value="<?php echo $row_schedule['tue_se'] ?>" disabled>
                     </div>
                 </div>
                 <div class="schedule-info">
                     <strong>Wednesday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="f-start-wednesday" id="f-start-wednesday" value="09:00" disabled> 
+                        <input type="time" name="wed_fs" class="s" value="<?php echo $row_schedule['wed_fs'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="f-end-wednesday" id="f-end-wednesday" value="11:00" disabled> 
+                        <input type="time" name="wed_fe" class="e" value="<?php echo $row_schedule['wed_fe'] ?>" disabled>
                     </div>
                     <span>Second Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="s-start-wednesday" id="s-start-wednesday" value="14:00" disabled> 
+                        <input type="time" name="wed_ss" class="s" value="<?php echo $row_schedule['wed_ss'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="s-end-wednesday" id="s-end-wednesday" value="17:00" disabled> 
+                        <input type="time" name="wed_se" class="e" value="<?php echo $row_schedule['wed_se'] ?>" disabled>
                     </div>
                 </div>
                 <div class="schedule-info">
                     <strong>Thursday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="f-start-thursday" id="f-start-thursday" value="09:00" disabled> 
+                        <input type="time" name="thu_fs" class="s" value="<?php echo $row_schedule['thu_fs'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="f-end-thursday" id="f-end-thursday" value="11:00" disabled> 
+                        <input type="time" name="thu_fe" class="e" value="<?php echo $row_schedule['thu_fe'] ?>" disabled>
                     </div>
                     <span>Second Shift</span>
                     <div class="time-ctrl">
-                        <input type="time" name="s-start-thursday" id="s-start-thursday" value="14:00" disabled> 
+                        <input type="time" name="thu_ss" class="s" value="<?php echo $row_schedule['thu_ss'] ?>" disabled>
                         <span>to</span>
-                        <input type="time" name="s-end-thursday" id="s-end-thursday" value="17:00" disabled> 
+                        <input type="time" name="thu_se" class="e" value="<?php echo $row_schedule['thu_se'] ?>" disabled>
                     </div>
                 </div>
-                    <div class="schedule-info">
-                        <input type="button" value="Update Schedule" id="doctor-update-schedule">
-                    </div>
+                <div class="schedule-info">
+                    <input type="button" value="Update Schedule" id="doctor-update-schedule">
                 </div>
             </div>
+        </div>
     </main>
     <footer>
         <div id="contactInfo">
