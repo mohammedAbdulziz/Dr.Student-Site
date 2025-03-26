@@ -166,7 +166,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                 <input type="button" value="Student" class="btn active" id="studentBtn">
                 <input type="button" value="Doctor" class="btn" id="doctorBtn">
             </div>
-            <form action="/Dashboards/functions/studentPost.php" class="student-create active" method="post">
+            <form action="/Dashboards/functions/studentPost.php" class="student-create active" method="post" enctype="multipart/form-data">
                 <div class="formDiv">
                     <label for="Name">Name:</label>
                     <input type="text" name="name" id="studentName">
@@ -189,7 +189,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                 </div>
                 <div class="formDiv">
                     <label for="Name">Profile Picture:</label>
-                    <input type="file" name="profile" id="studentProfile">
+                    <input type="file" name="profile_picture" id="studentProfile">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Email:</label>
@@ -227,7 +227,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                 </div>
                 <div class="formDiv">
                     <label for="Name">Profile Picture:</label>
-                    <input type="file" name="profile" id="doctorProfile">
+                    <input type="file" name="profile_picture" id="doctorProfile">
                 </div>
                 <div class="formDiv">
                     <label for="Name">Email:</label>

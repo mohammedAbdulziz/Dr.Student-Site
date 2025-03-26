@@ -1,3 +1,23 @@
+<?php
+require_once "../includes/db_config.php";
+
+$id = $_GET["id"];
+
+$sql = "select * from doctors where id=$id";
+
+$sql_schedule = "select * from doctor_schedule where id =$id";
+
+$result = mysqli_query($conn, $sql);
+
+$result_schedule = mysqli_query($conn, $sql_schedule);
+
+$row = mysqli_fetch_assoc($result);
+
+$row_schedule = mysqli_fetch_assoc($result_schedule);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,129 +71,162 @@
             </div>
             <h1>Status</h1>
             <div id="doc-status">
-                <input type="radio" name="status" id="available">
-                <label for="available" class="status-btn available">Available</label>
-                <input type="radio" name="status" id="not-available">
-                <label for="not-available" class="status-btn not-available">Not Available</label>
+                <form action="/Dashboards/functions/doctorStatus.php" method="post">
+                    <input type="radio" name="status" id="available" value="available" <?php if($row_schedule['status']=="available"){ echo "checked";}?>>
+                    <label for="available" class="status-btn available">Available</label>
+                    <input type="radio" name="status" id="not_available" value="not_available" <?php if($row_schedule['status']=="not_available"){ echo "checked";}?>>
+                    <label for="not_available" class="status-btn not-available">Not Available</label>
+                    <!-- <button type="submit" style="visibility: hidden; width:0%" id="statusSubmit">Submit</button> -->
+                    <input type="number" name="id" value="<?php echo $row['id']?>" style="visibility: hidden; width:0%" >
+                    <input type="submit" value="submit" name="submit" style="visibility: hidden; width:0%" id="statusSubmit">
+                </form>
             </div>
-            <div class="doctor-details">
-                <h1>Information</h1>
-                <div class="doctor-detail">
-                    <strong>Name:</strong>
-                    <input type="text" name="doctor-name" id="doctor-name" placeholder="T. Shahlaa` Al-Swailim">
+            <form action="/Dashboards/functions/doctorUpdateDr.php" method="post">
+                <div class="doctor-details">
+                    <h1>Information</h1>
+                    <div class="doctor-detail">
+                        <strong>Name:</strong>
+                        <input type="text" name="name" id="doctor-name" value="<?php echo $row["name"]; ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>Id:</strong>
+                        <input type="text" name="id" id="doctor-id" value=<?php echo $row["id"]; ?> style="background-color: #F5F2E4;">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>Office Number:</strong>
+                        <input type="text" name="office" id="doctor-office" value="<?php echo $row["office"] ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>
+                            Course Name:
+                        </strong>
+                        <input type="text" name="course" id="doctor-course" value="<?php echo $row["course"]; ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>
+                            Office Hours:
+                        </strong>
+                        <input type="text" name="hours" id="doctor-hours">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>Call forwarding:</strong>
+                        <input type="text" name="phone_number" id="doctor-phone" value="<?php echo $row["phone_number"]; ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>Email:</strong>
+                        <input type="email" name="email" id="doctor-email" value="<?php echo $row["email"]; ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <strong>Password:</strong>
+                        <input type="password" name="password" id="doctor-password" value="<?php echo $row["password"]; ?>">
+                    </div>
+                    <div class="doctor-detail">
+                        <input type="submit" name="submit" value="Update" id="doctor-update">
+                    </div>
                 </div>
-                <div class="doctor-detail">
-                    <strong>Office Number:</strong>
-                    <input type="text" name="doctor-office" id="doctor-office" placeholder="1.501.19">
-                </div>
-                <div class="doctor-detail">
-                    <strong>
-                        Course Name:
-                    </strong>
-                    <input type="text" name="doctor-course" id="doctor-course" placeholder="Python">
-                </div>
-                <div class="doctor-detail">
-                    <strong>
-                        Office Hours:
-                    </strong>
-                    <input type="text" name="doctor-hours" id="doctor-hours" placeholder="16" disabled>
-                </div>
-                <div class="doctor-detail">
-                    <strong>Call forwarding:</strong>
-                    <input type="text" name="doctor-phone" id="doctor-phone" placeholder="37362">
-                </div>
-                <div class="doctor-detail">
-                    <strong>Email:</strong>
-                    <input type="text" name="doctor-email" id="doctor-email" placeholder="saalswailim@pnu.edu.sa">
-                </div>
-                <div class="doctor-detail">
-                    <input type="button" value="Update" id="doctor-update">
-                </div>
-            </div>
+            </form>
         </div>
         <div class="doctor-schedule">
             <h1>Schedule</h1>
             <div class="schedule-infos">
-                <div class="schedule-info">
-                    <strong>Sunday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="f-start-sunday" id="f-start-sunday" value="09:00"> 
-                        <span>to</span>
-                        <input type="time" name="f-end-sunday" id="f-end-sunday" value="11:00"> 
-                    </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="s-start-sunday" id="s-start-sunday" value="14:00"> 
-                        <span>to</span>
-                        <input type="time" name="s-end-sunday" id="s-end-sunday" value="17:00"> 
-                    </div>
-                </div>
-                <div class="schedule-info">
-                    <strong>Monday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="f-start-monday" id="f-start-monday" value="09:00"> 
-                        <span>to</span>
-                        <input type="time" name="f-end-monday" id="f-end-monday" value="11:00"> 
-                    </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="s-start-monday" id="s-start-monday" value="14:00"> 
-                        <span>to</span>
-                        <input type="time" name="s-end-monday" id="s-end-monday" value="17:00"> 
-                    </div>
-                </div>
-                <div class="schedule-info">
-                    <strong>Tuesday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="f-start-tuesday" id="f-start-tuesday" value="09:00"> 
-                        <span>to</span>
-                        <input type="time" name="f-end-tuesday" id="f-end-tuesday" value="11:00"> 
-                    </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="s-start-tuesday" id="s-start-tuesday" value="14:00"> 
-                        <span>to</span>
-                        <input type="time" name="s-end-tuesday" id="s-end-tuesday" value="17:00"> 
-                    </div>
-                </div>
-                <div class="schedule-info">
-                    <strong>Wednesday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="f-start-wednesday" id="f-start-wednesday" value="09:00"> 
-                        <span>to</span>
-                        <input type="time" name="f-end-wednesday" id="f-end-wednesday" value="11:00"> 
-                    </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="s-start-wednesday" id="s-start-wednesday" value="14:00"> 
-                        <span>to</span>
-                        <input type="time" name="s-end-wednesday" id="s-end-wednesday" value="17:00"> 
-                    </div>
-                </div>
-                <div class="schedule-info">
-                    <strong>Thursday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="f-start-thursday" id="f-start-thursday" value="09:00"> 
-                        <span>to</span>
-                        <input type="time" name="f-end-thursday" id="f-end-thursday" value="11:00"> 
-                    </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
-                        <input type="time" name="s-start-thursday" id="s-start-thursday" value="14:00"> 
-                        <span>to</span>
-                        <input type="time" name="s-end-thursday" id="s-end-thursday" value="17:00"> 
-                    </div>
-                </div>
+                <form action="/Dashboards/functions/doctorSchedule.php" method="post">
                     <div class="schedule-info">
-                        <input type="button" value="Update Schedule" id="doctor-update-schedule">
+                        <strong>Saturday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="sat_fs" class="s" value="<?php echo $row_schedule['sat_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="sat_fe" class="e" value="<?php echo $row_schedule['sat_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="sat_ss" class="s" value="<?php echo $row_schedule['sat_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="sat_se" class="e" value="<?php echo $row_schedule['sat_se'] ?>">
+                        </div>
                     </div>
-                </div>
+                    <div class="schedule-info">
+                        <strong>Sunday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="sun_fs" class="s" value="<?php echo $row_schedule['sun_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="sun_fe" class="e" value="<?php echo $row_schedule['sun_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="sun_ss" class="s" value="<?php echo $row_schedule['sun_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="sun_se" class="e" value="<?php echo $row_schedule['sun_se'] ?>">
+                        </div>
+                    </div>
+                    <div class="schedule-info">
+                        <strong>Monday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="mon_fs" class="s" value="<?php echo $row_schedule['mon_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="mon_fe" class="e" value="<?php echo $row_schedule['mon_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="mon_ss" class="s" value="<?php echo $row_schedule['mon_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="mon_se" class="e" value="<?php echo $row_schedule['mon_se'] ?>">
+                        </div>
+                    </div>
+                    <div class="schedule-info">
+                        <strong>Tuesday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="tue_fs" class="s" value="<?php echo $row_schedule['tue_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="tue_fe" class="e" value="<?php echo $row_schedule['tue_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="tue_ss" class="s" value="<?php echo $row_schedule['tue_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="tue_se" class="e" value="<?php echo $row_schedule['tue_se'] ?>">
+                        </div>
+                    </div>
+                    <div class="schedule-info">
+                        <strong>Wednesday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="wed_fs" class="s" value="<?php echo $row_schedule['wed_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="wed_fe" class="e" value="<?php echo $row_schedule['wed_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="wed_ss" class="s" value="<?php echo $row_schedule['wed_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="wed_se" class="e" value="<?php echo $row_schedule['wed_se'] ?>">
+                        </div>
+                    </div>
+                    <div class="schedule-info">
+                        <strong>Thursday:</strong>
+                        <span>First Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="thu_fs" class="s" value="<?php echo $row_schedule['thu_fs'] ?>">
+                            <span>to</span>
+                            <input type="time" name="thu_fe" class="e" value="<?php echo $row_schedule['thu_fe'] ?>">
+                        </div>
+                        <span>Second Shift</span>
+                        <div class="time-ctrl">
+                            <input type="time" name="thu_ss" class="s" value="<?php echo $row_schedule['thu_ss'] ?>">
+                            <span>to</span>
+                            <input type="time" name="thu_se" class="e" value="<?php echo $row_schedule['thu_se'] ?>">
+                        </div>
+                    </div>
+                    <div class="schedule-infoSub">
+                        <input type="number" name="id" value="<?php echo $row['id'] ?>" style="visibility:hidden; display:block; width:0%;">
+                        <input type="submit" name="submit" value="Update Schedule" id="doctor-update-schedule">
+                    </div>
+                </form>
             </div>
+        </div>
     </main>
     <footer>
         <div id="contactInfo">
@@ -194,6 +247,7 @@
         </div>
     </footer>
     <script src="../script.js"></script>
+    <script src="../Dashboards/scripts/doctor-pg.js"></script>
 </body>
 
 </html>

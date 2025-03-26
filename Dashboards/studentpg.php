@@ -1,3 +1,20 @@
+<?php
+require_once "../includes/db_config.php";
+$id=$_GET["id"];
+$sql="select * from `students` where id=$id";
+
+$result=mysqli_query($conn, $sql);
+$row=mysqli_fetch_assoc($result);
+// print_r($row);
+$profile_picture;
+if($row["profile_picture"]==null){
+    $profile_picture="../Images/student-profile.jpeg";
+}
+else{
+    $profile_picture="../Images/".$row["profile_picture"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,31 +67,31 @@
     <main>
         <div class="student-details">
             <p class="student-detail">
-                <img src="../Images/student-profile.jpeg" alt="Profile Picture" id="student-picture">
+                <img src=<?php echo $profile_picture; ?> alt="Profile Picture" id="student-picture">
             </p>
             <p class="student-detail">
                 <strong>Name: </strong>
-                <span id="student-name">Abeer Faris Ali</span>
+                <span id="student-name"><?php echo $row["name"];?></span>
             </p>
             <p class="student-detail">
                 <strong>ID: </strong>
-                <span id="student-id">96669</span>
+                <span id="student-id"><?php echo $row["id"];?></span>
             </p>
             <p class="student-detail">
                 <strong>Major: </strong>
-                <span id="student-major">Computer Science</span>
+                <span id="student-major"><?php echo $row["major"];?></span>
             </p>
             <p class="student-detail">
                 <strong>Year: </strong>
-                <span id="student-year">2025</span>
+                <span id="student-year"><?php echo $row["year"];?></span>
             </p>
             <p class="student-detail">
                 <strong>Email: </strong>
-                <a href="mailto:abeer@pnu.edu.sa" id="student-email">abeer@pnu.edu.sa</a>
+                <a href="mailto:abeer@pnu.edu.sa" id="student-email"><?php echo $row["email"];?></a>
             </p>
             <p class="student-detail">
                 <strong>Phone Number: </strong>
-                <a href="tel:+96618811111" id="student-phone">+96618811111</a>
+                <a href="tel:+96618811111" id="student-phone"><?php echo $row["phone_number"];?></a>
             </p>
         </div>
         <div class="doctors-scroll">

@@ -16,6 +16,7 @@ if(isset($_POST["submit"])){
 
     if($result){
         header("Location:../admin.php");
+
     }
     else{
         die(mysqli_error($conn));

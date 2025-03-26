@@ -1,5 +1,5 @@
-<?php
-require_once("../../includes/db_config.php");
+<?php 
+require_once "../../includes/db_config.php";
 
 if(isset($_POST["submit"])){
     $name=$_POST["name"];
@@ -9,14 +9,14 @@ if(isset($_POST["submit"])){
     $phone_number=$_POST["phone_number"];
     $email=$_POST["email"];
     $password=$_POST["password"];
-    $profile_picture=$_POST["profile_picture"];
 
-    $sql="insert into `doctors` (name, id, office, course, phone_number, email, password, profile_picture) values('$name','$id','$office', '$course', '$phone_number', '$email', '$password', '$profile_picture')";
+    $sql="update `doctors` set name='$name', id=$id, office='$office', course='$course', phone_number='$phone_number', email='$email', password='$password' where id = $id";
 
     $result=mysqli_query($conn, $sql);
 
     if($result){
-        header("Location:../admin.php");
+        header("Location:../doctor-pg.php?id=$id");
+        
     }
     else{
         die(mysqli_error($conn));
