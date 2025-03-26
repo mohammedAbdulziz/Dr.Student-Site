@@ -2,6 +2,7 @@
 require_once '../includes/db_config.php';
 
 $id = $_GET['id'];
+$studentId=$_GET['studentId'];
 
 $sql = "select * from doctors where id=$id";
 $sql_schedule = "select * from doctor_schedule where id=$id";
@@ -52,7 +53,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
                     <a href="../pages/faq.php" id="faqBtn">FAQ</a>
-                    <a href="../Dashboards/studentpg.php" id="logOutBtn">Go Back</a>
+                    <a href="../Dashboards/studentpg.php?id=<?php echo $studentId;?>" id="logOutBtn">Go Back</a>
                 </li>
             </ul>
             <h1>Doctors Reminder</h1>
@@ -62,7 +63,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
         <div class="doctor-info">
             <h1><?php echo $row['name']; ?></h1>
             <div id="doc-profile-pic">
-                <img src="../Images/doctor-profile.jpg" alt="Doctor Profile Picture">
+                <img src="../Images/doctor-profile1.jpg" alt="Doctor Profile Picture">
             </div>
             <h1>Status</h1>
             <div id="doc-status">

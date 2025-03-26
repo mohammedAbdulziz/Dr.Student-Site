@@ -67,7 +67,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
         <div class="doctor-info">
             <h1>Your Profile</h1>
             <div id="doc-profile-pic">
-                <img src="../Images/doctor-profile.jpg" alt="Doctor Profile Picture">
+                <img src="../Images/doctor-profile1.jpg" alt="Doctor Profile Picture">
             </div>
             <h1>Status</h1>
             <div id="doc-status">

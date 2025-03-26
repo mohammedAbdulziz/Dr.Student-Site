@@ -1,17 +1,21 @@
 <?php
 require_once "../includes/db_config.php";
-$id=$_GET["id"];
-$sql="select * from `students` where id=$id";
+$id = $_GET["id"];
+$sql = "select * from `students` where id=$id";
 
-$result=mysqli_query($conn, $sql);
-$row=mysqli_fetch_assoc($result);
+$sql_doc = "select * from `doctors`";
+
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+$result_doc = mysqli_query($conn, $sql_doc);
+
 // print_r($row);
 $profile_picture;
-if($row["profile_picture"]==null){
-    $profile_picture="../Images/student-profile.jpeg";
-}
-else{
-    $profile_picture="../Images/".$row["profile_picture"];
+if ($row["profile_picture"] == null) {
+    $profile_picture = "../Images/student-profile.jpeg";
+} else {
+    $profile_picture = "../Images/" . $row["profile_picture"];
 }
 ?>
 
@@ -61,135 +65,70 @@ else{
         </div>
     </header>
     <div class="title">
-        <h1>Your Profile</h1>
-        <h2>Contact A Doctor</h2>
+
+
     </div>
     <main>
         <div class="student-details">
+            <h1>Your Profile</h1>
             <p class="student-detail">
                 <img src=<?php echo $profile_picture; ?> alt="Profile Picture" id="student-picture">
             </p>
             <p class="student-detail">
                 <strong>Name: </strong>
-                <span id="student-name"><?php echo $row["name"];?></span>
+                <span id="student-name"><?php echo $row["name"]; ?></span>
             </p>
             <p class="student-detail">
                 <strong>ID: </strong>
-                <span id="student-id"><?php echo $row["id"];?></span>
+                <span id="student-id"><?php echo $row["id"]; ?></span>
             </p>
             <p class="student-detail">
                 <strong>Major: </strong>
-                <span id="student-major"><?php echo $row["major"];?></span>
+                <span id="student-major"><?php echo $row["major"]; ?></span>
             </p>
             <p class="student-detail">
                 <strong>Year: </strong>
-                <span id="student-year"><?php echo $row["year"];?></span>
+                <span id="student-year"><?php echo $row["year"]; ?></span>
             </p>
             <p class="student-detail">
                 <strong>Email: </strong>
-                <a href="mailto:abeer@pnu.edu.sa" id="student-email"><?php echo $row["email"];?></a>
+                <a href="mailto:abeer@pnu.edu.sa" id="student-email"><?php echo $row["email"]; ?></a>
             </p>
             <p class="student-detail">
                 <strong>Phone Number: </strong>
-                <a href="tel:+96618811111" id="student-phone"><?php echo $row["phone_number"];?></a>
+                <a href="tel:+96618811111" id="student-phone"><?php echo $row["phone_number"]; ?></a>
             </p>
         </div>
+
         <div class="doctors-scroll">
-            <div class="doctor-info">
-                <p>
-                    <Strong>Name: </Strong>
-                    <span id="doctor-name">Dr. Nahid Ahmed Ali</span>
-                </p>
-                <p>
-                    <Strong>Office-Id: </Strong>
-                    <span id="doctor-office">1.501.31</span>
-                </p>
-                <p>
-                    <strong>Call forwarding: </strong>
-                    <a href="tel:41448" id="doctor-phone">41448</a>
-                </p>
-                <p>
-                    <strong>Email: </strong>
-                    <a href="mailto:naaali@pnu.edu.sa" id="doctor-email">naaali@pnu.edu.sa</a>
-                </p>
-                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
-            </div>
-            <div class="doctor-info">
-                <p>
-                    <Strong>Name: </Strong>
-                    <span id="doctor-name">Dr. Ennas Hilali</span>
-                </p>
-                <p>
-                    <Strong>Office-Id: </Strong>
-                    <span  id="doctor-office">1.501.02</span>
-                </p>
-                <p>
-                    <strong>Call forwarding: </strong>
-                    <a href="tel:41543" id="doctor-phone">41543</a>
-                </p>
-                <p>
-                    <strong>Email: </strong>
-                    <a href="mailto:imalihilali@pnu.edu.sa" id="doctor-email" >imalihilali@pnu.edu.sa</a>
-                </p>
-                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
-            </div>
-            <div class="doctor-info">
-                <p>
-                    <Strong>Name: </Strong>
-                    <span id="doctor-name">Dr. Ameenah Maqdesh</span>
-                </p>
-                <p>
-                    <Strong>Office-Id: </Strong>
-                    <span  id="doctor-Office">1.501.23</span>
-                </p>
-                <p>
-                    <strong>Call forwarding</strong>
-                    <a href="tel:41498" id="doctor-phone">41498</a>
-                </p>
-                <p>
-                    <strong>Email: </strong>
-                    <a href="mailto:ASMagdich@pnu.edu.sa" id="doctor-email">ASMagdich@pnu.edu.sa</a>
-                </p>
-                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
-            </div>
-            <div class="doctor-info">
-                <p>
-                    <Strong>Name: </Strong>
-                    <span id="doctor-name">T. Hind Al-Nahidh</span>
-                </p>
-                <p>
-                    <Strong>Office-Id: </Strong>
-                    <span  id="doctor-Office">1.501.17</span>
-                </p>
-                <p>
-                    <strong>Call forwarding</strong>
-                    <a href="tel:37363" id="doctor-phone">37363</a>
-                </p>
-                <p>
-                    <strong>Email: </strong>
-                    <a href="mailto:hsannahidh@pnu.edu.sa" id="doctor-email">hsannahidh@pnu.edu.sa</a>
-                </p>
-                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
-            </div>
-            <div class="doctor-info">
-                <p>
-                    <Strong>Name: </Strong>
-                    <span id="doctor-name">T. Shahlaa` Al-Swailim</span>
-                </p>
-                <p>
-                    <Strong>Office-Id: </Strong>
-                    <span  id="doctor-Office">1.501.19</span>
-                </p>
-                <p>
-                    <strong>Call forwarding</strong>
-                    <a href="tel:37362" id="doctor-phone">37362</a>
-                </p>
-                <p>
-                    <strong>Email: </strong>
-                    <a href="mailto:saalswailim@pnu.edu.sa" id="doctor-email">saalswailim@pnu.edu.sa</a>
-                </p>
-                <a href="./doctor-profile.php" target="_blank" id="doctor-profile">Profile</a>
-            </div>
+            <h2>Contact A Doctor</h2>
+            <?php
+            while ($row_doc = mysqli_fetch_assoc($result_doc)) {
+            ?>
+                <div class="doctor-info">
+                    <p>
+                        <Strong>Name: </Strong>
+                        <span id="doctor-name"><?php echo $row_doc['name'];?></span>
+                    </p>
+                    <p>
+                        <Strong>Office-Id: </Strong>
+                        <span id="doctor-office"><?php echo $row_doc['office'];?></span>
+                    </p>
+                    <p>
+                        <strong>Call forwarding: </strong>
+                        <a href="tel:41448" id="doctor-phone"><?php echo $row_doc['phone_number'];?></a>
+                    </p>
+                    <p>
+                        <strong>Email: </strong>
+                        <a href="mailto:naaali@pnu.edu.sa" id="doctor-email"><?php echo $row_doc['email'];?></a>
+                    </p>
+                    <a href="./doctor-profile.php?id=<?php echo $row_doc["id"] ?>&studentId=<?php echo $id?>" id="doctor-profile">Profile</a>
+                </div>
+            <?php
+            }
+            ?>
+
+
         </div>
     </main>
     <footer>
