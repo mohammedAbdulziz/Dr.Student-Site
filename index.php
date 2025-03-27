@@ -24,8 +24,10 @@
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                    <input type="submit" value="Search" name="submit" id="searchBtn">
+                    <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>

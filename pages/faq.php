@@ -1,6 +1,6 @@
 <?php
 require_once '../includes/db_config.php';
-$faq="select * from faq";
+$faq = "select * from faq";
 $results_faq = mysqli_query($conn, $faq);
 ?>
 
@@ -31,8 +31,10 @@ $results_faq = mysqli_query($conn, $faq);
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
@@ -50,9 +52,9 @@ $results_faq = mysqli_query($conn, $faq);
     <main>
         <div id="faq-container">
             <h1>Frequently Asked Questions</h1>
-            <?php 
-            while($row=mysqli_fetch_assoc($results_faq)){
-                ?>
+            <?php
+            while ($row = mysqli_fetch_assoc($results_faq)) {
+            ?>
                 <div class="faq-item">
                     <div class="question">
                         <?php echo "<span>" . $row["question"] . "</span>"; ?>
@@ -61,7 +63,7 @@ $results_faq = mysqli_query($conn, $faq);
                         <?php echo $row["answer"]; ?>
                     </div>
                 </div>
-                <?php
+            <?php
             }
             ?>
         </div>

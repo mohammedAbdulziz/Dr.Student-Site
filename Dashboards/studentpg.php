@@ -46,8 +46,10 @@ if ($row["profile_picture"] == null) {
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
@@ -108,21 +110,21 @@ if ($row["profile_picture"] == null) {
                 <div class="doctor-info">
                     <p>
                         <Strong>Name: </Strong>
-                        <span id="doctor-name"><?php echo $row_doc['name'];?></span>
+                        <span id="doctor-name"><?php echo $row_doc['name']; ?></span>
                     </p>
                     <p>
                         <Strong>Office-Id: </Strong>
-                        <span id="doctor-office"><?php echo $row_doc['office'];?></span>
+                        <span id="doctor-office"><?php echo $row_doc['office']; ?></span>
                     </p>
                     <p>
                         <strong>Call forwarding: </strong>
-                        <a href="tel:41448" id="doctor-phone"><?php echo $row_doc['phone_number'];?></a>
+                        <a href="tel:41448" id="doctor-phone"><?php echo $row_doc['phone_number']; ?></a>
                     </p>
                     <p>
                         <strong>Email: </strong>
-                        <a href="mailto:naaali@pnu.edu.sa" id="doctor-email"><?php echo $row_doc['email'];?></a>
+                        <a href="mailto:naaali@pnu.edu.sa" id="doctor-email"><?php echo $row_doc['email']; ?></a>
                     </p>
-                    <a href="./doctor-profile.php?id=<?php echo $row_doc["id"] ?>&studentId=<?php echo $id?>" id="doctor-profile">Profile</a>
+                    <a href="./doctor-profile.php?id=<?php echo $row_doc["id"] ?>&studentId=<?php echo $id ?>" id="doctor-profile">Profile</a>
                 </div>
             <?php
             }

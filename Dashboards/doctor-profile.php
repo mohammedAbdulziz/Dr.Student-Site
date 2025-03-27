@@ -2,7 +2,7 @@
 require_once '../includes/db_config.php';
 
 $id = $_GET['id'];
-$studentId=$_GET['studentId'];
+$studentId = $_GET['studentId'];
 
 $sql = "select * from doctors where id=$id";
 $sql_schedule = "select * from doctor_schedule where id=$id";
@@ -41,8 +41,10 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
@@ -53,7 +55,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
                     <a href="../pages/faq.php" id="faqBtn">FAQ</a>
-                    <a href="../Dashboards/studentpg.php?id=<?php echo $studentId;?>" id="logOutBtn">Go Back</a>
+                    <a href="../Dashboards/studentpg.php?id=<?php echo $studentId; ?>" id="logOutBtn">Go Back</a>
                 </li>
             </ul>
             <h1>Doctors Reminder</h1>

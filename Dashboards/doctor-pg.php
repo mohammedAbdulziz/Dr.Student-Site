@@ -45,8 +45,10 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
@@ -72,12 +74,16 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
             <h1>Status</h1>
             <div id="doc-status">
                 <form action="/Dashboards/functions/doctorStatus.php" method="post">
-                    <input type="radio" name="status" id="available" value="available" <?php if($row_schedule['status']=="available"){ echo "checked";}?>>
+                    <input type="radio" name="status" id="available" value="available" <?php if ($row_schedule['status'] == "available") {
+                                                                                            echo "checked";
+                                                                                        } ?>>
                     <label for="available" class="status-btn available">Available</label>
-                    <input type="radio" name="status" id="not_available" value="not_available" <?php if($row_schedule['status']=="not_available"){ echo "checked";}?>>
+                    <input type="radio" name="status" id="not_available" value="not_available" <?php if ($row_schedule['status'] == "not_available") {
+                                                                                                    echo "checked";
+                                                                                                } ?>>
                     <label for="not_available" class="status-btn not-available">Not Available</label>
                     <!-- <button type="submit" style="visibility: hidden; width:0%" id="statusSubmit">Submit</button> -->
-                    <input type="number" name="id" value="<?php echo $row['id']?>" style="visibility: hidden; width:0%" >
+                    <input type="number" name="id" value="<?php echo $row['id'] ?>" style="visibility: hidden; width:0%">
                     <input type="submit" value="submit" name="submit" style="visibility: hidden; width:0%" id="statusSubmit">
                 </form>
             </div>

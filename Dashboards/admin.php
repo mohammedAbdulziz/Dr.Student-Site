@@ -31,8 +31,10 @@ $result_doctors = mysqli_query($conn, $query_doctors)
             <!-- Navigiation Menu -->
             <ul>
                 <li>
-                    <input type="button" value="Search" id="searchBtn">
-                    <input type="search" name="" id="searchText">
+                    <form action="/Dashboards/functions/search.php" method="get">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                    </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
@@ -87,15 +89,15 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                             <td><button><?php echo "<a href='/Dashboards/functions/doctorDelete.php?id=" . $row["id"] . "'>Delete</a>" ?></button></td>
                             <td><button class="doctor-edit">Edit</button></td>
                         </tr>
-                        <tr id="doctorEditRow<?php echo $row["id"];?>">
+                        <tr id="doctorEditRow<?php echo $row["id"]; ?>">
                             <form action="/Dashboards/functions/doctorUpdate.php" method="post">
-                                <td><input type="text" name="name" id="doctor-name" value="<?php echo $row["name"]?>"></td>
-                                <td><input type="number" name="id" id="doctor-id" value="<?php echo $row["id"]?>" style="visibility: hidden;"></td>
-                                <td><input type="text" name="office" id="doctor-office" value="<?php echo $row["office"]?>"></td>
-                                <td><input type="text" name="course" id="doctor-course" value="<?php echo $row["course"]?>"></td>
-                                <td><input type="number" name="phone_number" id="doctor-number" value="<?php echo $row["phone_number"]?>"></td>
-                                <td><input type="email" name="email" id="doctor-email" value="<?php echo $row["email"]?>"></td>
-                                <td><input type="password" name="password" id="doctor-password" value="<?php echo $row["password"]?>"></td>
+                                <td><input type="text" name="name" id="doctor-name" value="<?php echo $row["name"] ?>"></td>
+                                <td><input type="number" name="id" id="doctor-id" value="<?php echo $row["id"] ?>" style="visibility: hidden;"></td>
+                                <td><input type="text" name="office" id="doctor-office" value="<?php echo $row["office"] ?>"></td>
+                                <td><input type="text" name="course" id="doctor-course" value="<?php echo $row["course"] ?>"></td>
+                                <td><input type="number" name="phone_number" id="doctor-number" value="<?php echo $row["phone_number"] ?>"></td>
+                                <td><input type="email" name="email" id="doctor-email" value="<?php echo $row["email"] ?>"></td>
+                                <td><input type="password" name="password" id="doctor-password" value="<?php echo $row["password"] ?>"></td>
                                 <td><button type="button">Cancel</button></td>
                                 <td><input type="submit" value="Update " name="submit"></td>
                             </form>
@@ -134,7 +136,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                             <td><button><?php echo "<a href='/Dashboards/functions/studentDelete.php?id=" . $row["id"] . "'>Delete</a>" ?></button></td>
                             <td><button class="student-edit">Edit</button></td>
                         </tr>
-                        <tr id="studentEditRow<?php echo$row["id"]?>">
+                        <tr id="studentEditRow<?php echo $row["id"] ?>">
                             <form action="/Dashboards/functions/studentUpdate.php" method="post">
 
                                 <td><input type="text" name="name" id="student-name" value="<?php echo $row["name"] ?>"></td>
@@ -225,7 +227,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                     <label for="Name">Call-forwarding:</label>
                     <input type="number" name="phone_number" id="doctorPhone">
                 </div>
-                <div class="formDiv">
+                <div class="formDiv" style="display:none">
                     <label for="Name">Profile Picture:</label>
                     <input type="file" name="profile_picture" id="doctorProfile">
                 </div>
