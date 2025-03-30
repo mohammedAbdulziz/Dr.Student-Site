@@ -1,0 +1,16 @@
+# Enable the rewrite engine
+RewriteEngine On
+
+# Set the base directory (optional, but good practice if .htaccess is in root)
+RewriteBase /
+
+# Condition: If the requested filename is NOT a file
+RewriteCond %{REQUEST_FILENAME} !-f
+# Condition: AND if the requested filename is NOT a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# Rule: Redirect any request matching the conditions to the homepage
+# ^(.*)$ matches everything
+# / is the homepage URL path
+# [L] means Last rule - stop processing further rules
+# [R=302] means Redirect with a 302 status code (Temporary Redirect)
+RewriteRule ^(.*)$ / [L,R=302]
