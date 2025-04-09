@@ -3,17 +3,21 @@ require_once "../includes/db_config.php";
 $id = $_GET["id"];
 $sql = "select * from `students` where id=$id";
 
+
 $sql_doc = "select * from `doctors`";
+$sql_doc1 = "select * from `doctor_schedule`";
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 $result_doc = mysqli_query($conn, $sql_doc);
 
+$result_docs1 = mysqli_query($conn, $sql_doc1);
+
 // print_r($row);
 $profile_picture;
 if ($row["profile_picture"] == null) {
-    $profile_picture = "../Images/student-profile.jpeg";
+    $profile_picture = "../Images/doctor-profile1.JPG";
 } else {
     $profile_picture = "../Images/" . $row["profile_picture"];
 }
@@ -128,6 +132,64 @@ if ($row["profile_picture"] == null) {
                 </div>
             <?php
             }
+            ?>
+
+
+        </div>
+
+        <div class="doctors-scroll">
+            <h2>Notifications</h2>
+            <?php
+            while ($row_status = mysqli_fetch_assoc($result_docs1)) {
+                if ($row_status["status"] == "available") {
+                    $result_docs = mysqli_query($conn, $sql_doc);
+                    while ($row_hi = mysqli_fetch_assoc($result_docs)) {
+                        if ($row_status["id"] == $row_hi["id"]) {
+            ?>
+                            <div class="doctor-info">
+                                <p>
+                                    <Strong>Dr: </Strong>
+                                    <span id="doctor-name"><?php echo $row_hi['name']; ?></span>
+                                </p>
+                                <P>
+                                    <!-- <strong>Status:</strong> -->
+                                    <span>Available</span>
+                                </P>
+                                <p>
+                                    <strong>Office Hours Today</strong>
+                                    <span>
+                                        <br>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fs"] ?>" disabled>
+                                        <span> <b> to </b> </span>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fe"] ?>" disabled>
+                                    </span>
+                                    <span>
+                                        <br>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_ss"] ?>" disabled>
+                                        <span> <b> to </b> </span>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_se"] ?>" disabled>
+                                    </span>
+                                </p>
+                                <p>
+                                    <Strong class="fa-solid fa-building"> </Strong>
+                                    <span id="doctor-office"><?php echo $row_hi['office']; ?></span>
+                                </p>
+                                <p>
+                                    <strong class="fa-solid fa-phone"> </strong>
+                                    <a href="tel:41448" id="doctor-phone"><?php echo $row_hi['phone_number']; ?></a>
+                                </p>
+                                <p>
+                                    <strong class="fa-solid fa-envelope"> </strong>
+                                    <a href="mailto:naaali@pnu.edu.sa" id="doctor-email"><?php echo $row_hi['email']; ?></a>
+                                </p>
+                                <a href="./doctor-profile.php?id=<?php echo $row_hi["id"] ?>&studentId=<?php echo $id ?>" id="doctor-profile">Profile</a>
+                            </div>
+            <?php
+                        }
+                    }
+                }
+            }
+
             ?>
 
 

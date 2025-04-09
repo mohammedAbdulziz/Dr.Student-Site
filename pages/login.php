@@ -1,9 +1,9 @@
 <?php
 require_once "../includes/db_config.php";
 $error = "";
-if (isset($_GET["submit"])) {
-    $email = $_GET["email"];
-    $password = $_GET["password"];
+if (isset($_POST["submit"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
     $admin_email = "guest@g.com";
     $admin_password = "1234";
     $students_query = "select * from students";
@@ -83,10 +83,10 @@ if (isset($_GET["submit"])) {
     <main>
         <div id="loginCont">
             <img src="../Images/logo.png" alt="logo">
-            <form action="#" method="get">
+            <form action="#" method="post">
                 <div class="formDiv">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="  Enter email">
+                    <input type="text" name="email" id="email" placeholder="  Enter email">
                 </div>
                 <div class="formDiv">
                     <label for="password">Password</label>

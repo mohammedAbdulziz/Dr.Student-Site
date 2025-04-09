@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const e = info.querySelector(".e").value;
             // console.log(e);
             let calc = toHours(toSeconds(e) - toSeconds(s));
-            totalHours += calc;
+            totalHours += calc; //totalHours=totalHours+calc
             // console.log(totalHours);
         });
 

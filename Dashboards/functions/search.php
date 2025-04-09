@@ -8,7 +8,7 @@ echo $search_term;
 print_r($search_term);
 
 if($search_term==""){
-    $search_term="sdffffffffffffadfsdfdfsfffffffffffffffffffadfafsfafaf";
+    $search_term="adsfadsfadsfafadsfadsfasdfads";
 }
 
 $sql = "SELECT * FROM doctors WHERE name LIKE '%" . $search_term . "%'";
