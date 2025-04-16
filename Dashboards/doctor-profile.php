@@ -120,7 +120,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
         <div class="doctor-schedule">
             <h1>Schedule</h1>
             <div class="schedule-infos">
-                <div class="schedule-info">
+                <div class="schedule-info" style="display: none;">
                     <strong>Saturday:</strong>
                     <span>First Shift</span>
                     <div class="time-ctrl">

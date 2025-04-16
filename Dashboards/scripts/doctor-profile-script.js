@@ -30,6 +30,7 @@ const scheduleInfo = document.querySelectorAll(".schedule-info");
 let totalHours = 0;
 // hours.value="LOL";
 scheduleInfo.forEach((b) => {
+    let hoursSum=0;
 
     const timeCtrl = b.querySelectorAll(".time-ctrl");
 
@@ -37,15 +38,24 @@ scheduleInfo.forEach((b) => {
     timeCtrl.forEach((info) => {
         // info.style.backgroundColor = "red";
         const s = info.querySelector(".s").value;
-        // console.log(s);
+        console.log(s);
         const e = info.querySelector(".e").value;
-        // console.log(e);
+        console.log(e);
         let calc = toHours(toSeconds(e) - toSeconds(s));
+        hoursSum+=calc;
         totalHours += calc;
+        // if(s=="00:00:00"&&e=="00:00:00"){
+        //     b.style.display="none";
+        // }
         // console.log(totalHours);
     });
+    if(hoursSum==0){
+        b.style.display="none";
+    }
 });
 const totalHourDisplay = document.getElementById("doctor-hours");
 // console.log("total hours= "+totalHours);
 totalHourDisplay.placeholder = totalHours + " Hours";
 totalHourDisplay.style.backgroundColor = "#F5F2E4";
+
+

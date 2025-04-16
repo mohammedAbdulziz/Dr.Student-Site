@@ -136,7 +136,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
             <h1>Schedule</h1>
             <div class="schedule-infos">
                 <form action="/Dashboards/functions/doctorSchedule.php" method="post">
-                    <div class="schedule-info">
+                    <div class="schedule-info" style="display: none;">
                         <strong>Saturday:</strong>
                         <span>First Shift</span>
                         <div class="time-ctrl">

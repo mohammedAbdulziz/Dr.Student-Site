@@ -137,7 +137,7 @@ if ($row["profile_picture"] == null) {
 
         </div>
 
-        <div class="doctors-scroll">
+        <div class="doctors-scroll" id="notifications">
             <h2>Notifications</h2>
             <?php
             while ($row_status = mysqli_fetch_assoc($result_docs1)) {
@@ -146,7 +146,7 @@ if ($row["profile_picture"] == null) {
                     while ($row_hi = mysqli_fetch_assoc($result_docs)) {
                         if ($row_status["id"] == $row_hi["id"]) {
             ?>
-                            <div class="doctor-info">
+                            <div class="doctor-info doctorNot">
                                 <p>
                                     <Strong>Dr: </Strong>
                                     <span id="doctor-name"><?php echo $row_hi['name']; ?></span>
@@ -157,17 +157,17 @@ if ($row["profile_picture"] == null) {
                                 </P>
                                 <p>
                                     <strong>Office Hours Today</strong>
-                                    <span>
+                                    <span class="timeCtrl">
                                         <br>
-                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fs"] ?>" disabled>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fs"] ?>" class="s" disabled>
                                         <span> <b> to </b> </span>
-                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fe"] ?>" disabled>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_fe"] ?>" class="e" disabled>
                                     </span>
-                                    <span>
+                                    <span class="timeCtrl">
                                         <br>
-                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_ss"] ?>" disabled>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_ss"] ?>" class="s" disabled>
                                         <span> <b> to </b> </span>
-                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_se"] ?>" disabled>
+                                        <input type="time" value="<?php echo $row_status[strtolower(date('D')) . "_se"] ?>" class="e" disabled>
                                     </span>
                                 </p>
                                 <p>
@@ -214,6 +214,7 @@ if ($row["profile_picture"] == null) {
         </div>
     </footer>
     <script src="../script.js"></script>
+    <script src="../Dashboards/scripts/studentpg.js"></script>
 </body>
 
 </html>
