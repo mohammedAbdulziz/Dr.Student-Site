@@ -28,3 +28,32 @@ main .doctor-info .doctor-details .doctor-detail:last-of-type{
 main .doctor-schedule .schedule-infos .schedule-info:last-of-type{
     display: none;
 }
+
+.schedule-infos .schedule-info .time-ctrl1{
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.schedule-infos .schedule-info .time-ctrl1 span{
+    width:25%;
+}
+.schedule-infos .schedule-info .time-ctrl1 span:last-of-type{
+    width:5%;
+}
+.schedule-infos .schedule-info .time-ctrl1 input{
+    width:25%;
+}
+.schedule-infos .schedule-info .time-ctrl2{
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.schedule-infos .schedule-info .time-ctrl2 span{
+    width:25%;
+}
+.schedule-infos .schedule-info .time-ctrl2 span:last-of-type{
+    width:5%;
+}
+.schedule-infos .schedule-info .time-ctrl2 input{
+    width:25%;
+}

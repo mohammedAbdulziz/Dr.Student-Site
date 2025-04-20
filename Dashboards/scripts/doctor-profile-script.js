@@ -30,26 +30,33 @@ const scheduleInfo = document.querySelectorAll(".schedule-info");
 let totalHours = 0;
 // hours.value="LOL";
 scheduleInfo.forEach((b) => {
-    let hoursSum=0;
 
-    const timeCtrl = b.querySelectorAll(".time-ctrl");
+    const timeCtrl1 = b.querySelector(".time-ctrl1");
+    const timeCtrl2 = b.querySelector(".time-ctrl2");
+    const shift1=timeCtrl1.querySelector(".Shift1");
+    const shift2=timeCtrl2.querySelector(".Shift2");
 
-
-    timeCtrl.forEach((info) => {
-        // info.style.backgroundColor = "red";
-        const s = info.querySelector(".s").value;
-        console.log(s);
-        const e = info.querySelector(".e").value;
-        console.log(e);
-        let calc = toHours(toSeconds(e) - toSeconds(s));
-        hoursSum+=calc;
-        totalHours += calc;
-        // if(s=="00:00:00"&&e=="00:00:00"){
-        //     b.style.display="none";
-        // }
-        // console.log(totalHours);
-    });
-    if(hoursSum==0){
+    const s1 = timeCtrl1.querySelector(".s").value;
+    console.log(s1);
+    const e1 = timeCtrl1.querySelector(".e").value;
+    console.log(e1);
+    let calc1 = toHours(toSeconds(e1) - toSeconds(s1));
+    totalHours += calc1;
+    const s2 = timeCtrl2.querySelector(".s").value;
+    console.log(s2);
+    const e2 = timeCtrl2.querySelector(".e").value;
+    console.log(e2);
+    let calc2 = toHours(toSeconds(e2) - toSeconds(s2));
+    totalHours += calc2;
+    if(calc1==0&&calc2!==0){
+        timeCtrl1.style.display="none";
+        shift2.innerText="Shift";
+    }
+    if(calc1!==0&&calc2==0){
+        timeCtrl2.style.display="none";
+        shift1.innerText="Shift";
+    }
+    if(calc1==0&&calc2==0){
         b.style.display="none";
     }
 });

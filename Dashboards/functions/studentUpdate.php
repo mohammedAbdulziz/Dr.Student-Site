@@ -1,6 +1,6 @@
 <?php 
 require_once "../../includes/db_config.php";
-echo "hi hi";
+// echo "hi hi";
 
 if(isset($_POST["submit"])){
     $name=$_POST["name"];

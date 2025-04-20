@@ -25,17 +25,16 @@
             <ul>
                 <li>
                     <form action="/Dashboards/functions/search.php" method="get">
-                    <input type="submit" value="Search" name="submit" id="searchBtn">
-                    <input type="search" name="search_term" id="searchText" placeholder="Enter Search Term">
+                        <input type="submit" value="Search" name="submit" id="searchBtn">
+                        <input type="search" name="search_term" id="searchText" placeholder="Enter Doctor's Name">
                     </form>
                 </li>
                 <!-- <li>
                     <h1>Doctors Reminder</h1>
                 </li> -->
                 <li>
-                    <a href="#" id="arEnBtn">AR/ENG</a>
-                    <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
-                    <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
+                    <!-- <a href="#" id="arEnBtn">AR/ENG</a> -->
+
                     <a href="./pages/login.php" id="loginBtn">Login</a>
                 </li>
             </ul>
@@ -43,7 +42,7 @@
         </div>
     </header>
     <main>
-        <img src="./Images/1.jpeg" alt="Doctor Teaching">
+        <img src="./Images/1.jpeg" alt="Student Image">
         <div id="paraCont">
             <div id="contContainer">
                 <h1> Who are we!</h1>

@@ -7,6 +7,8 @@ firstHeader.addEventListener('click', function () {
     window.location.href = '../index.php'
 })
 
+
+
 //admin page codes ##########################################################################################
 
 const adminPg_studentBtn = document.querySelector('main .manage-accounts .account-filter #studentBtn');

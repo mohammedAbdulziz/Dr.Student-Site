@@ -40,7 +40,7 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                     <h1>Doctors Reminder</h1>
                 </li> -->
                 <li>
-                    <a href="#" id="arEnBtn">AR/ENG</a>
+                    <!-- <a href="#" id="arEnBtn">AR/ENG</a> -->
                     <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
@@ -189,10 +189,10 @@ $result_doctors = mysqli_query($conn, $query_doctors)
                     <label for="Name">Phone Number:</label>
                     <input type="number" name="phone_number" id="studentPhone">
                 </div>
-                <div class="formDiv">
+                <!-- <div class="formDiv">
                     <label for="Name">Profile Picture:</label>
                     <input type="file" name="profile_picture" id="studentProfile">
-                </div>
+                </div> -->
                 <div class="formDiv">
                     <label for="Name">Email:</label>
                     <input type="email" name="email" id="studentEmail">

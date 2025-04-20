@@ -54,7 +54,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                     <h1>Doctors Reminder</h1>
                 </li> -->
                 <li>
-                    <a href="#" id="arEnBtn">AR/ENG</a>
+                    <!-- <a href="#" id="arEnBtn">AR/ENG</a> -->
                     <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->

@@ -28,6 +28,9 @@ doctorNot.forEach(b=>{
         // console.log(e);
         let calc = toHours(toSeconds(e) - toSeconds(s));
         sumHours+=calc;
+        if(calc==0){
+            info.style.display="none";
+        }
     });
     if(sumHours==0){
         b.style.display="none";

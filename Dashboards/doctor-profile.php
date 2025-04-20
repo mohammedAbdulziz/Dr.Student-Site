@@ -50,7 +50,7 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                     <h1>Doctors Reminder</h1>
                 </li> -->
                 <li>
-                    <a href="#" id="arEnBtn">AR/ENG</a>
+                    <!-- <a href="#" id="arEnBtn">AR/ENG</a> -->
                     <!-- <input type="button" value="AR/ENG" id="arEnBtn"> -->
                     <!-- <input type="button" value="LOGIN" id="loginBtn"> -->
                     <!-- <a href="./pages/login.html" id="loginBtn">Login</a> -->
@@ -122,14 +122,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
             <div class="schedule-infos">
                 <div class="schedule-info" style="display: none;">
                     <strong>Saturday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="sat_fs" class="s" value="<?php echo $row_schedule['sat_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="sat_fe" class="e" value="<?php echo $row_schedule['sat_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="sat_ss" class="s" value="<?php echo $row_schedule['sat_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="sat_se" class="e" value="<?php echo $row_schedule['sat_se'] ?>" disabled>
@@ -137,14 +137,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                 </div>
                 <div class="schedule-info">
                     <strong>Sunday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="sun_fs" class="s" value="<?php echo $row_schedule['sun_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="sun_fe" class="e" value="<?php echo $row_schedule['sun_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="sun_ss" class="s" value="<?php echo $row_schedule['sun_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="sun_se" class="e" value="<?php echo $row_schedule['sun_se'] ?>" disabled>
@@ -152,14 +152,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                 </div>
                 <div class="schedule-info">
                     <strong>Monday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="mon_fs" class="s" value="<?php echo $row_schedule['mon_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="mon_fe" class="e" value="<?php echo $row_schedule['mon_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="mon_ss" class="s" value="<?php echo $row_schedule['mon_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="mon_se" class="e" value="<?php echo $row_schedule['mon_se'] ?>" disabled>
@@ -167,14 +167,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                 </div>
                 <div class="schedule-info">
                     <strong>Tuesday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="tue_fs" class="s" value="<?php echo $row_schedule['tue_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="tue_fe" class="e" value="<?php echo $row_schedule['tue_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="tue_ss" class="s" value="<?php echo $row_schedule['tue_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="tue_se" class="e" value="<?php echo $row_schedule['tue_se'] ?>" disabled>
@@ -182,14 +182,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                 </div>
                 <div class="schedule-info">
                     <strong>Wednesday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="wed_fs" class="s" value="<?php echo $row_schedule['wed_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="wed_fe" class="e" value="<?php echo $row_schedule['wed_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="wed_ss" class="s" value="<?php echo $row_schedule['wed_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="wed_se" class="e" value="<?php echo $row_schedule['wed_se'] ?>" disabled>
@@ -197,14 +197,14 @@ $row_schedule = mysqli_fetch_assoc($result_schedule);
                 </div>
                 <div class="schedule-info">
                     <strong>Thursday:</strong>
-                    <span>First Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl1">
+                        <span class="Shift1">First Shift</span>
                         <input type="time" name="thu_fs" class="s" value="<?php echo $row_schedule['thu_fs'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="thu_fe" class="e" value="<?php echo $row_schedule['thu_fe'] ?>" disabled>
                     </div>
-                    <span>Second Shift</span>
-                    <div class="time-ctrl">
+                    <div class="time-ctrl2">
+                        <span class="Shift2">Second Shift</span>
                         <input type="time" name="thu_ss" class="s" value="<?php echo $row_schedule['thu_ss'] ?>" disabled>
                         <span>to</span>
                         <input type="time" name="thu_se" class="e" value="<?php echo $row_schedule['thu_se'] ?>" disabled>

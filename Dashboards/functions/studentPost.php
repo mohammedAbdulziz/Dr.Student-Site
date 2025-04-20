@@ -2,7 +2,7 @@
 require_once("../../includes/db_config.php");
 
 
-echo $_POST["email"];
+// echo $_POST["email"];
 
 
 
@@ -14,19 +14,19 @@ if(isset($_POST["submit"])){
     $phone_number=$_POST["phone_number"];
     $email=$_POST["email"];
     $password=$_POST["password"];
-    $profile_picture=$_FILES['profile_picture']['name'];
-    $profile_picture_temp=$_FILES['profile_picture']['tmp_name'];
-    echo $profile_picture;
-    echo $profile_picture_temp;
+    // $profile_picture=$_FILES['profile_picture']['name'];
+    // $profile_picture_temp=$_FILES['profile_picture']['tmp_name'];
+    // echo $profile_picture;
+    // echo $profile_picture_temp;
 
-    $folder="../../Images/".$profile_picture;
+    // $folder="../../Images/".$profile_picture;
 
-    echo $folder;
+    // echo $folder;
     
 
-    $sql= "insert into `students` (name, id, major, year, phone_number, email, password, profile_picture) values('$name', '$id', '$major', '$year', '$phone_number', '$email', '$password', '$profile_picture')";
+    $sql= "insert into `students` (name, id, major, year, phone_number, email, password) values('$name', '$id', '$major', '$year', '$phone_number', '$email', '$password')";
 
-    move_uploaded_file($profile_picture_temp,$folder);
+    // move_uploaded_file($profile_picture_temp,$folder);
 
     $result = mysqli_query($conn, $sql);
 
